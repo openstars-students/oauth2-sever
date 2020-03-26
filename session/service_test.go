@@ -1,8 +1,8 @@
 package session_test
 
 import (
-	"oauth2-server/session"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 func (suite *SessionTestSuite) TestService() {

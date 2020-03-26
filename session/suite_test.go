@@ -5,11 +5,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"oauth2-server/config"
-	"oauth2-server/session"
 	"github.com/gorilla/sessions"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 // SessionTestSuite needs to be exported so the tests run

@@ -3,10 +3,10 @@ package oauth_test
 import (
 	"time"
 
-	"oauth2-server/models"
-	"oauth2-server/oauth"
 	"github.com/RichardKnop/uuid"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
 )
 
 func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenCreatesNew() {

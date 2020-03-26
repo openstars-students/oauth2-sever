@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"oauth2-server/log"
 	"github.com/hashicorp/consul/api"
+	"github.com/tientruongcao51/oauth2-sever/log"
 )
 
 var (

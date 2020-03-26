@@ -1,12 +1,12 @@
 package oauth
 
 import (
-	"oauth2-server/config"
-	"oauth2-server/models"
-	"oauth2-server/session"
-	"oauth2-server/util/routes"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/session"
+	"github.com/tientruongcao51/oauth2-sever/util/routes"
 )
 
 // ServiceInterface defines exported methods

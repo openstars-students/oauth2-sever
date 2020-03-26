@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/RichardKnop/go-oauth2-server/log"
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"go.etcd.io/etcd/clientv3"
 	"go.etcd.io/etcd/etcdserver/api/v3rpc/rpctypes"
 	"go.etcd.io/etcd/pkg/transport"

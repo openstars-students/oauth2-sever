@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/astaxie/beego/plugins/cors"
-	_ "oauth2-server/routers"
+	_ "github.com/tientruongcao51/oauth2-sever/routers"
 
 	"github.com/astaxie/beego"
 )
@@ -21,4 +21,3 @@ func main() {
 
 	beego.Run()
 }
-

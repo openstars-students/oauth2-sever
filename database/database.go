@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"oauth2-server/config"
 	"github.com/jinzhu/gorm"
+	"github.com/tientruongcao51/oauth2-sever/config"
 
 	// Drivers
 	_ "github.com/lib/pq"

@@ -3,7 +3,7 @@ package oauth
 import (
 	"time"
 
-	"oauth2-server/models"
+	"github.com/tientruongcao51/oauth2-sever/models"
 )
 
 // GrantAccessToken deletes old tokens and grants a new access token

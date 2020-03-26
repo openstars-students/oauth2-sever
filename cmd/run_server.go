@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"time"
 
-	"oauth2-server/services"
 	"github.com/gorilla/mux"
 	"github.com/phyber/negroni-gzip/gzip"
+	"github.com/tientruongcao51/oauth2-sever/services"
 	"github.com/urfave/negroni"
 	"gopkg.in/tylerb/graceful.v1"
 )

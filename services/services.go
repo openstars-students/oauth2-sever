@@ -3,13 +3,13 @@ package services
 import (
 	"reflect"
 
-	"oauth2-server/config"
-	"oauth2-server/health"
-	"oauth2-server/oauth"
-	"oauth2-server/session"
-	"oauth2-server/web"
 	"github.com/gorilla/sessions"
 	"github.com/jinzhu/gorm"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/health"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/session"
+	"github.com/tientruongcao51/oauth2-sever/web"
 )
 
 func init() {

@@ -3,8 +3,8 @@ package controllers
 import (
 	"encoding/json"
 	"github.com/astaxie/beego"
-	"oauth2-server/models"
-	"oauth2-server/service_impl"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
 )
 
 // Operations about Users

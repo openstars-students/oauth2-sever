@@ -4,11 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService/bigset/thrift/gen-go/openstars/core/bigset/generic"
-	"oauth2-server/models"
+	"github.com/tientruongcao51/oauth2-sever/models"
 )
 
 //var svClient StringBigsetService.StringBigsetServiceIf
-
 
 type UserServiceImp struct {
 }
@@ -39,9 +38,9 @@ func (s *UserServiceImp) Get(bs string, username string) (user models.OauthUser,
 		err = json.Unmarshal(result.Value, &user)
 	}
 	if err != nil {
-		return user ,errors.New("Errors in Get User from BS")
+		return user, errors.New("Errors in Get User from BS")
 	}
-	return user,nil
+	return user, nil
 }
 
 //func main() {

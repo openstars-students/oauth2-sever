@@ -3,8 +3,8 @@ package password_test
 import (
 	"testing"
 
-	"oauth2-server/util/password"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/util/password"
 )
 
 func TestVerifyPassword(t *testing.T) {

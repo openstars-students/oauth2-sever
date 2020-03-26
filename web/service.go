@@ -3,9 +3,9 @@ package web
 import (
 	"net/http"
 
-	"oauth2-server/config"
-	"oauth2-server/oauth"
-	"oauth2-server/session"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 // Service struct keeps variables for reuse

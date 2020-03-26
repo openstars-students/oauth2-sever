@@ -3,8 +3,8 @@ package config_test
 import (
 	"testing"
 
-	"oauth2-server/config"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/config"
 )
 
 type Foo struct {

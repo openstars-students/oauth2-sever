@@ -4,9 +4,9 @@ import (
 	"errors"
 	"net/http"
 
-	"oauth2-server/models"
-	"oauth2-server/session"
 	"github.com/gorilla/context"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 type contextKey int

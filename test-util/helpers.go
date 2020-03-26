@@ -11,10 +11,10 @@ import (
 	"strings"
 	"testing"
 
-	"oauth2-server/util/response"
 	"github.com/RichardKnop/jsonhal"
 	"github.com/gorilla/mux"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/util/response"
 )
 
 // TestGetErrorExpectedResponse ...

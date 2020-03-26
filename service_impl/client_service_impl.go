@@ -6,7 +6,7 @@ import (
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService"
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService/bigset/thrift/gen-go/openstars/core/bigset/generic"
 	"github.com/OpenStars/GoEndpointManager/GoEndpointBackendManager"
-	"oauth2-server/models"
+	"github.com/tientruongcao51/oauth2-sever/models"
 	"sync"
 )
 

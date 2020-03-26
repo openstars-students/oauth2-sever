@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"oauth2-server/models"
-	"oauth2-server/oauth/tokentypes"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth/tokentypes"
 )
 
 const (

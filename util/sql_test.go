@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"oauth2-server/util"
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/util"
 )
 
 func TestIntOrNull(t *testing.T) {

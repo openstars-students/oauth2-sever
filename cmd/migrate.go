@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"oauth2-server/models"
-	"oauth2-server/util/migrations"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/util/migrations"
 )
 
 // Migrate runs database migrations

@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"oauth2-server/models"
+	"github.com/tientruongcao51/oauth2-sever/models"
 )
 
 var (

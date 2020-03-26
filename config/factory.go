@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"oauth2-server/log"
+	"github.com/tientruongcao51/oauth2-sever/log"
 )
 
 var (

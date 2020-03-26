@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"oauth2-server/config"
-	"oauth2-server/database"
 	"github.com/jinzhu/gorm"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/database"
 )
 
 // initConfigDB loads the configuration and connects to the database

@@ -3,7 +3,7 @@ package log_test
 import (
 	"testing"
 
-	"oauth2-server/log"
+	"github.com/tientruongcao51/oauth2-sever/log"
 )
 
 func TestDefaultLogger(t *testing.T) {

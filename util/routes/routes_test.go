@@ -6,9 +6,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"oauth2-server/util/routes"
 	"github.com/gorilla/mux"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/util/routes"
 	"github.com/urfave/negroni"
 )
 

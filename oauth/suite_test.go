@@ -4,14 +4,14 @@ import (
 	"os"
 	"testing"
 
-	"oauth2-server/config"
-	"oauth2-server/log"
-	"oauth2-server/models"
-	"oauth2-server/oauth"
-	"oauth2-server/test-util"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 	"github.com/stretchr/testify/suite"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/log"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/test-util"
 )
 
 var (

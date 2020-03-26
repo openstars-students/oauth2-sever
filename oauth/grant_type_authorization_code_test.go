@@ -6,13 +6,13 @@ import (
 	"net/url"
 	"time"
 
-	"oauth2-server/models"
-	"oauth2-server/oauth"
-	"oauth2-server/oauth/tokentypes"
-	"oauth2-server/test-util"
-	"oauth2-server/util"
 	"github.com/RichardKnop/uuid"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/oauth/tokentypes"
+	"github.com/tientruongcao51/oauth2-sever/test-util"
+	"github.com/tientruongcao51/oauth2-sever/util"
 )
 
 func (suite *OauthTestSuite) TestAuthorizationCodeGrantEmptyNotFound() {

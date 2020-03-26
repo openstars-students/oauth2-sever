@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"oauth2-server/controllers"
+	"github.com/tientruongcao51/oauth2-sever/controllers"
 
 	"github.com/astaxie/beego"
 )

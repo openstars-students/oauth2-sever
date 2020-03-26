@@ -3,8 +3,8 @@ package migrations
 import (
 	"fmt"
 
-	"oauth2-server/log"
 	"github.com/jinzhu/gorm"
+	"github.com/tientruongcao51/oauth2-sever/log"
 )
 
 // MigrationStage ...

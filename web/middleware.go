@@ -3,8 +3,8 @@ package web
 import (
 	"net/http"
 
-	"oauth2-server/session"
 	"github.com/gorilla/context"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 // parseFormMiddleware parses the form so r.Form becomes available
@@ -114,7 +114,7 @@ func (m *loggedInMiddleware) authenticate(userSession *session.UserSession) erro
 	// Validate the refresh token
 	theRefreshToken, err := m.service.GetOauthService().GetValidRefreshToken(
 		userSession.RefreshToken, // refresh token
-		client, // client
+		client,                   // client
 	)
 	if err != nil {
 		return err

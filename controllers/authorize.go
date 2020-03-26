@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego"
-	"oauth2-server/config"
-	"oauth2-server/models"
-	"oauth2-server/oauth"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
 )
 
 // Operations about AuthController
@@ -59,6 +59,7 @@ func (u *AuthController) Post() {
 	u.Data["json"] = map[string]string{"oauth": oauth.Code}
 	u.ServeJSON()
 }
+
 /*
 func ParseToken(myToken string) (err error) {
 

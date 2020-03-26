@@ -4,8 +4,8 @@ import (
 	"errors"
 	"time"
 
-	"oauth2-server/models"
-	"oauth2-server/util"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/util"
 )
 
 var (

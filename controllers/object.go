@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"oauth2-server/models"
 	"encoding/json"
+	"github.com/tientruongcao51/oauth2-sever/models"
 
 	"github.com/astaxie/beego"
 )
@@ -90,4 +90,3 @@ func (o *ObjectController) Delete() {
 	o.Data["json"] = "delete success!"
 	o.ServeJSON()
 }
-

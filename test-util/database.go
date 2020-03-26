@@ -2,11 +2,12 @@ package testutil
 
 import (
 	"fmt"
+	"github.com/src/github.com/RichardKnop/go-fixtures"
 	"os"
 
 	"github.com/RichardKnop/go-fixtures"
-	"oauth2-server/util/migrations"
 	"github.com/jinzhu/gorm"
+	"github.com/tientruongcao51/oauth2-sever/util/migrations"
 
 	// Drivers
 	_ "github.com/lib/pq"

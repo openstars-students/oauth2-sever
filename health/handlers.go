@@ -3,7 +3,7 @@ package health
 import (
 	"net/http"
 
-	"oauth2-server/util/response"
+	"github.com/tientruongcao51/oauth2-sever/util/response"
 )
 
 // Handles health check requests (GET /v1/health)

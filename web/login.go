@@ -3,7 +3,7 @@ package web
 import (
 	"net/http"
 
-	"oauth2-server/session"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 func (s *Service) loginForm(w http.ResponseWriter, r *http.Request) {

@@ -5,8 +5,8 @@ import (
 	"errors"
 	"net/http"
 
-	"oauth2-server/config"
 	"github.com/gorilla/sessions"
+	"github.com/tientruongcao51/oauth2-sever/config"
 )
 
 // Service wraps session functionality

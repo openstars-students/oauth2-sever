@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
-	"oauth2-server/models"
-	"oauth2-server/session"
 	"github.com/jinzhu/gorm"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 var (

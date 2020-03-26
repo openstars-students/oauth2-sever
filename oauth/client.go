@@ -5,11 +5,11 @@ import (
 	"strings"
 	"time"
 
-	"oauth2-server/util"
-	"oauth2-server/util/password"
 	"github.com/RichardKnop/uuid"
-	"oauth2-server/models"
-	"oauth2-server/service_impl"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
+	"github.com/tientruongcao51/oauth2-sever/util"
+	"github.com/tientruongcao51/oauth2-sever/util/password"
 )
 
 var (

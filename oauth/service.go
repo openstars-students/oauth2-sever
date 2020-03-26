@@ -3,8 +3,8 @@ package oauth
 import (
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService"
 	"github.com/jinzhu/gorm"
-	"oauth2-server/config"
-	"oauth2-server/oauth/roles"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/oauth/roles"
 )
 
 // Service struct keeps objects to avoid passing them around

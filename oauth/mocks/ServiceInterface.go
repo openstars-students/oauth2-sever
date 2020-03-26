@@ -1,11 +1,11 @@
 package mocks
 
-import "oauth2-server/oauth"
+import "github.com/tientruongcao51/oauth2-sever/oauth"
 import "github.com/stretchr/testify/mock"
 
-import "oauth2-server/config"
-import "oauth2-server/models"
-import "oauth2-server/util/routes"
+import "github.com/tientruongcao51/oauth2-sever/config"
+import "github.com/tientruongcao51/oauth2-sever/models"
+import "github.com/tientruongcao51/oauth2-sever/util/routes"
 import "github.com/gorilla/mux"
 import "github.com/jinzhu/gorm"
 

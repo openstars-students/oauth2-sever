@@ -4,9 +4,9 @@ import (
 	"errors"
 	"testing"
 
-	"oauth2-server/config"
-	"oauth2-server/database"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/database"
 )
 
 func TestNewDatabaseTypeNotSupported(t *testing.T) {

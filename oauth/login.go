@@ -1,7 +1,7 @@
 package oauth
 
 import (
-	"oauth2-server/models"
+	"github.com/tientruongcao51/oauth2-sever/models"
 )
 
 // Login creates an access token and refresh token for a user (logs him/her in)

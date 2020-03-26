@@ -3,12 +3,12 @@ package oauth_test
 import (
 	"time"
 
-	"oauth2-server/models"
-	"oauth2-server/oauth"
-	"oauth2-server/session"
 	"github.com/RichardKnop/uuid"
 	"github.com/jinzhu/gorm"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 func (suite *OauthTestSuite) TestAuthenticate() {

@@ -3,11 +3,11 @@ package web
 import (
 	"net/http"
 
-	"oauth2-server/config"
-	"oauth2-server/oauth"
-	"oauth2-server/session"
-	"oauth2-server/util/routes"
 	"github.com/gorilla/mux"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/session"
+	"github.com/tientruongcao51/oauth2-sever/util/routes"
 )
 
 // ServiceInterface defines exported methods

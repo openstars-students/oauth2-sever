@@ -3,13 +3,13 @@ package oauth_test
 import (
 	"time"
 
-	"oauth2-server/models"
-	"oauth2-server/oauth"
-	"oauth2-server/oauth/roles"
-	"oauth2-server/util"
-	pass "oauth2-server/util/password"
 	"github.com/RichardKnop/uuid"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/oauth/roles"
+	"github.com/tientruongcao51/oauth2-sever/util"
+	pass "github.com/tientruongcao51/oauth2-sever/util/password"
 )
 
 func (suite *OauthTestSuite) TestUserExistsFindsValidUser() {

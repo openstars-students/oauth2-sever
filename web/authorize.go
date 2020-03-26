@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"strconv"
 
-	"oauth2-server/models"
-	"oauth2-server/session"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 // ErrIncorrectResponseType a form value for response_type was not set to token or code
@@ -63,8 +63,8 @@ func (s *Service) authorize(w http.ResponseWriter, r *http.Request) {
 	if responseType == "code" {
 		// Create a new authorization code
 		authorizationCode, err := s.oauthService.GrantAuthorizationCode(
-			client, // client
-			user,   // user
+			client,                       // client
+			user,                         // user
 			s.cnf.Oauth.AuthCodeLifetime, // expires in
 			redirectURI.String(),         // redirect URI
 			scope,                        // scope

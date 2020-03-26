@@ -3,8 +3,8 @@ package util_test
 import (
 	"testing"
 
-	"oauth2-server/util"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/util"
 )
 
 func TestValidateEmail(t *testing.T) {

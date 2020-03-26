@@ -5,9 +5,9 @@ import (
 	"net/http/httptest"
 	"net/url"
 
-	"oauth2-server/oauth"
-	"oauth2-server/test-util"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/test-util"
 )
 
 func (suite *OauthTestSuite) TestTokensHandlerClientAuthenticationRequired() {

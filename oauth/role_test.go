@@ -1,10 +1,10 @@
 package oauth_test
 
 import (
-	"oauth2-server/models"
-	"oauth2-server/oauth"
-	"oauth2-server/oauth/roles"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/oauth/roles"
 )
 
 func (suite *OauthTestSuite) TestFindRoleByID() {
