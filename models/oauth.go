@@ -64,6 +64,7 @@ func (u *OauthUser) TableName() string {
 // OauthRefreshToken ...
 type OauthRefreshToken struct {
 	MyGormModel
+	BsKey     string
 	ClientID  sql.NullString `sql:"index;not null"`
 	UserID    sql.NullString `sql:"index"`
 	Client    *OauthClient
@@ -81,6 +82,7 @@ func (rt *OauthRefreshToken) TableName() string {
 // OauthAccessToken ...
 type OauthAccessToken struct {
 	MyGormModel
+	BsKey     string
 	ClientID  sql.NullString `sql:"index;not null"`
 	UserID    sql.NullString `sql:"index"`
 	Client    *OauthClient
@@ -98,6 +100,7 @@ func (at *OauthAccessToken) TableName() string {
 // OauthAuthorizationCode ...
 type OauthAuthorizationCode struct {
 	MyGormModel
+	BsKey       string
 	ClientID    sql.NullString `sql:"index;not null"`
 	UserID      sql.NullString `sql:"index;not null"`
 	Client      *OauthClient
@@ -115,11 +118,14 @@ func (ac *OauthAuthorizationCode) TableName() string {
 
 // NewOauthRefreshToken creates new OauthRefreshToken instance
 func NewOauthRefreshToken(client *OauthClient, user *OauthUser, expiresIn int, scope string) *OauthRefreshToken {
+	token := uuid.New()
+	bsKey := GetBsKeyAccessToken(token, client.ID)
 	refreshToken := &OauthRefreshToken{
 		MyGormModel: MyGormModel{
 			ID:        uuid.New(),
 			CreatedAt: time.Now().UTC(),
 		},
+		BsKey:     bsKey,
 		ClientID:  util.StringOrNull(string(client.ID)),
 		Token:     uuid.New(),
 		ExpiresAt: time.Now().UTC().Add(time.Duration(expiresIn) * time.Second),
@@ -131,38 +137,58 @@ func NewOauthRefreshToken(client *OauthClient, user *OauthUser, expiresIn int, s
 	return refreshToken
 }
 
+func GetBsKeyRefreshToken(token string, clientId string) string {
+	return token + "_" + clientId
+}
+
 // NewOauthAccessToken creates new OauthAccessToken instance
 func NewOauthAccessToken(client *OauthClient, user *OauthUser, expiresIn int, scope string) *OauthAccessToken {
+	token := uuid.New()
+	bsKey := GetBsKeyAccessToken(token, client.ID, "")
 	accessToken := &OauthAccessToken{
 		MyGormModel: MyGormModel{
 			ID:        uuid.New(),
 			CreatedAt: time.Now().UTC(),
 		},
 		ClientID:  util.StringOrNull(string(client.ID)),
-		Token:     uuid.New(),
+		Token:     token,
 		ExpiresAt: time.Now().UTC().Add(time.Duration(expiresIn) * time.Second),
 		Scope:     scope,
 	}
 	if user != nil {
 		accessToken.UserID = util.StringOrNull(string(user.ID))
+		bsKey = GetBsKeyAccessToken(token, client.ID, user.ID)
 	}
+	accessToken.BsKey = bsKey
+
 	return accessToken
+}
+
+func GetBsKeyAccessToken(token string, clientId string, userId string) string {
+	return token + "_" + clientId + "_" + userId
 }
 
 // NewOauthAuthorizationCode creates new OauthAuthorizationCode instance
 func NewOauthAuthorizationCode(client *OauthClient, user *OauthUser, expiresIn int, redirectURI, scope string) *OauthAuthorizationCode {
+	code := uuid.New()
+	bsKey := GetBsKeyAuthorizationToken(code, client.ID, user.ID)
 	return &OauthAuthorizationCode{
 		MyGormModel: MyGormModel{
 			ID:        uuid.New(),
 			CreatedAt: time.Now().UTC(),
 		},
+		BsKey:       bsKey,
 		ClientID:    util.StringOrNull(string(client.ID)),
 		UserID:      util.StringOrNull(string(user.ID)),
-		Code:        uuid.New(),
+		Code:        code,
 		ExpiresAt:   time.Now().UTC().Add(time.Duration(expiresIn) * time.Second),
 		RedirectURI: util.StringOrNull(redirectURI),
 		Scope:       scope,
 	}
+}
+
+func GetBsKeyAuthorizationToken(token string, clientId string, userId string) string {
+	return token + "_" + clientId + "_" + userId
 }
 
 // OauthAuthorizationCodePreload sets up Gorm preloads for an auth code object

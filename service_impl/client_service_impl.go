@@ -25,14 +25,14 @@ func init() {
 	})
 }
 
-type ServiceImp struct {
+type ClientServiceImp struct {
 }
 
-func NewService() ApplicationService {
-	return &ServiceImp{}
+func NewClientService() ClientService {
+	return &ClientServiceImp{}
 }
 
-func (s *ServiceImp) Put(clientID string, client models.OauthClient) (err error) {
+func (s *ClientServiceImp) Put(clientID string, client models.OauthClient) (err error) {
 	bskey := generic.TStringKey("client")
 	json_app, _ := json.Marshal(client)
 	item := &generic.TItem{
@@ -46,7 +46,7 @@ func (s *ServiceImp) Put(clientID string, client models.OauthClient) (err error)
 	return nil
 }
 
-func (s *ServiceImp) Get(clientID string) (client *models.OauthClient, err error) {
+func (s *ClientServiceImp) Get(clientID string) (client *models.OauthClient, err error) {
 	bskey := generic.TStringKey("client")
 	itemkey := generic.TItemKey(clientID)
 	result, err := svClient.BsGetItem(bskey, itemkey)

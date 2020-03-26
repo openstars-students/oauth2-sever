@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
 )
 
 var (
@@ -18,7 +19,10 @@ var (
 func (s *Service) GrantAuthorizationCode(client *models.OauthClient, user *models.OauthUser, expiresIn int, redirectURI, scope string) (*models.OauthAuthorizationCode, error) {
 	// Create a new authorization code
 	authorizationCode := models.NewOauthAuthorizationCode(client, user, expiresIn, redirectURI, scope)
-	if err := s.db.Create(authorizationCode).Error; err != nil {
+
+	err := service_impl.OauthServiceIns.Put(authorizationCode.BsKey, *authorizationCode)
+
+	if err != nil {
 		return nil, err
 	}
 	authorizationCode.Client = client
@@ -31,11 +35,12 @@ func (s *Service) GrantAuthorizationCode(client *models.OauthClient, user *model
 func (s *Service) getValidAuthorizationCode(code, redirectURI string, client *models.OauthClient) (*models.OauthAuthorizationCode, error) {
 	// Fetch the auth code from the database
 	authorizationCode := new(models.OauthAuthorizationCode)
-	notFound := models.OauthAuthorizationCodePreload(s.db).Where("client_id = ?", client.ID).
-		Where("code = ?", code).First(authorizationCode).RecordNotFound()
 
-	// Not found
-	if notFound {
+	bsKey := models.GetBsKeyAuthorizationToken(code, client.ID, "")
+
+	authorizationCode, err := service_impl.OauthServiceIns.Get(bsKey)
+
+	if err != nil {
 		return nil, ErrAuthorizationCodeNotFound
 	}
 

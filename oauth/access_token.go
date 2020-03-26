@@ -1,9 +1,8 @@
 package oauth
 
 import (
-	"time"
-
 	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
 )
 
 // GrantAccessToken deletes old tokens and grants a new access token
@@ -12,14 +11,15 @@ func (s *Service) GrantAccessToken(client *models.OauthClient, user *models.Oaut
 	tx := s.db.Begin()
 
 	// Delete expired access tokens
-	query := tx.Unscoped().Where("client_id = ?", client.ID)
+	bsKey := ""
 	if user != nil && len([]rune(user.ID)) > 0 {
-		query = query.Where("user_id = ?", user.ID)
+		bsKey = models.GetBsKeyAccessToken()
 	} else {
-		query = query.Where("user_id IS NULL")
+		bsKey = models.GetBsKeyAccessToken()
 	}
-	if err := query.Where("expires_at <= ?", time.Now()).Delete(new(models.OauthAccessToken)).Error; err != nil {
-		tx.Rollback() // rollback the transaction
+	accessToken, err := service_impl.AccessTokenServiceIns.Get(bsKey)
+
+	if err != nil {
 		return nil, err
 	}
 

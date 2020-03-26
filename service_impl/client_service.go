@@ -5,17 +5,17 @@ import (
 	"sync"
 )
 
-type ApplicationService interface {
+type ClientService interface {
 	Put(clientID string, client models.OauthClient) (err error)
 	Get(clientID string) (client *models.OauthClient, err error)
 }
 
-var ClientServiceIns ApplicationService
+var ClientServiceIns ClientService
 
 func init() {
 	// sync
 	syncOne := sync.Once{}
 	syncOne.Do(func() {
-		ClientServiceIns = NewService()
+		ClientServiceIns = NewClientService()
 	})
 }

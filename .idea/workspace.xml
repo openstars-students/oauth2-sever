@@ -2,107 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d325d7b-64c9-4ac9-b650-35967aa429bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/oauth2-server.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/service_impl/access_token_service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service_impl/oauth_service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service_impl/oauth_service_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/migrate.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/migrate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/run_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/run_server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/util.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/consul.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/consul.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/etcd.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/etcd.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/factory.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/factory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/factory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/factory_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/application.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/authorize.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authorize.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/object.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/object.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/database_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/health/handlers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/health/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health/service_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/health/service_interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lastupdate.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/lastupdate.tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/log/log_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/oauth.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/oauth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oauth/access_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/access_token.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/access_token_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/access_token_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/authenticate.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authenticate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/authenticate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authenticate_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oauth/authorization_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authorization_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/authorization_code_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authorization_code_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/client_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/client_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_authorization_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_authorization_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_authorization_code_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_authorization_code_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_client_credentials.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_client_credentials.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_client_credentials_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_client_credentials_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_password.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_password.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_password_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_password_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_refresh_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_refresh_token.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_refresh_token_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_refresh_token_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/handlers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/handlers_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/handlers_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/introspect.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/introspect.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/introspect_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/introspect_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/mocks/ServiceInterface.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/mocks/ServiceInterface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/refresh_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/refresh_token.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/refresh_token_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/refresh_token_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/role.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/role.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/role_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/role_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/scope.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/scope.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/scope_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/scope_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/service_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/service_interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/suite_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/suite_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/user_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/user_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/commentsRouter____home_truongct_DOAN_Code_src_oauth2-server_controllers.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/commentsRouter____home_truongct_DOAN_Code_src_oauth2-server_controllers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/commentsRouter_controllers.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/commentsRouter_controllers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/application_service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/user_service.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/service_impl/client_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/client_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service_impl/client_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/client_service_impl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/user_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/user_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/user_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/user_service_impl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/services.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/services.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/session/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session/service_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/session/service_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session/suite_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/session/suite_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-util/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-util/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-util/helpers.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-util/helpers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/default_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/default_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/email_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/email_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/http_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/http_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/migrations/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/migrations/bootstrap.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/migrations/migrate.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/migrations/migrate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/password/password_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/password/password_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/regex_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/regex_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/response/logging.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/response/logging.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/response/response_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/response/response_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/routes/routes_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/routes/routes_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/sql_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/sql_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/string_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/string_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/time_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/time_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/authorize.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/authorize.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/context.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/register.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/service_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/service_interface.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
@@ -116,7 +37,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
@@ -124,20 +48,45 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/service_impl" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/service_impl" />
+    </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="588" y="214" width="800" height="677" key="#Notifications" timestamp="1585241658414">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1585241658414" />
+    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2" timestamp="1585241839515">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585241839515" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1585241678848">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1585241678848" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585241789956">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585241789956" />
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585244693700">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585244693700" />
+    <state x="641" y="292" width="863" height="586" key="find.popup" timestamp="1585246462951">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="641" y="292" width="863" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585246462951" />
   </component>
 </project>
