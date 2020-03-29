@@ -2,6 +2,7 @@ package oauth
 
 import (
 	"errors"
+	"fmt"
 	"github.com/tientruongcao51/oauth2-sever/service_impl"
 	"time"
 
@@ -34,7 +35,6 @@ func (s *Service) Authenticate(token string) (*models.OauthAccessToken, error) {
 	}
 
 	// Extend refresh token expiration database
-	query := s.db.Model(new(models.OauthRefreshToken)).Where("client_id = ?", accessToken.ClientID.String)
 	itemKey := ""
 	if accessToken.UserID.Valid {
 		itemKey = models.GetItemKeyRefreshToken(accessToken.ClientID.String, accessToken.UserID.String)
@@ -44,17 +44,22 @@ func (s *Service) Authenticate(token string) (*models.OauthAccessToken, error) {
 	increasedExpiresAt := gorm.NowFunc().Add(
 		time.Duration(s.cnf.Oauth.RefreshTokenLifetime) * time.Second,
 	)
-	if err := query.UpdateColumn("expires_at", increasedExpiresAt).Error; err != nil {
+	refreshToken, err := service_impl.RefreshTokenServiceIns.GetByClientIdAndUserID(itemKey)
+	if err != nil {
 		return nil, err
 	}
 
-	service_impl.RefreshTokenServiceIns.Put(itemKey)
-
+	refreshToken.ExpiresAt = increasedExpiresAt
+	err = service_impl.RefreshTokenServiceIns.Put(itemKey, *refreshToken)
+	if err != nil {
+		return nil, err
+	}
 	return accessToken, nil
 }
 
 // ClearUserTokens deletes the user's access and refresh tokens associated with this client id
 func (s *Service) ClearUserTokens(userSession *session.UserSession) {
+	fmt.Println("oauth.ClearUserTokens")
 	// Clear all refresh tokens with user_id and client_id
 	refreshToken := new(models.OauthRefreshToken)
 	found := !models.OauthRefreshTokenPreload(s.db).Where("token = ?", userSession.RefreshToken).First(refreshToken).RecordNotFound()

@@ -6,8 +6,10 @@ import (
 )
 
 type OauthService interface {
-	Put(bsKey string, client models.OauthAuthorizationCode) (err error)
-	Get(bsKey string) (client *models.OauthAuthorizationCode, err error)
+	Put(itemKey string, client models.OauthAuthorizationCode) (err error)
+	GetByCode(itemKey string) (client *models.OauthAuthorizationCode, err error)
+	GetByClientIdAndUserID(itemKey string) (client *models.OauthAuthorizationCode, err error)
+	Delete(itemKey string) (err error)
 }
 
 var OauthServiceIns OauthService

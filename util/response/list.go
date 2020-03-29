@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/RichardKnop/jsonhal"
+	"github.com/tientruongcao51/oauth2-sever/jsonhal"
 )
 
 // ListResponse ...

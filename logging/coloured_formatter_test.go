@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/RichardKnop/logging"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/logging"
 )
 
 func TestColouredFormatter(t *testing.T) {

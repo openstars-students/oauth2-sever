@@ -2,7 +2,6 @@ package oauth
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/jinzhu/gorm"
 	"github.com/tientruongcao51/oauth2-sever/config"
 	"github.com/tientruongcao51/oauth2-sever/models"
 	"github.com/tientruongcao51/oauth2-sever/session"
@@ -21,16 +20,16 @@ type ServiceInterface interface {
 	ClientExists(clientID string) bool
 	FindClientByClientID(clientID string) (*models.OauthClient, error)
 	CreateClient(clientID, secret, redirectURI string) (*models.OauthClient, error)
-	CreateClientTx(tx *gorm.DB, clientID, secret, redirectURI string) (*models.OauthClient, error)
+	CreateClientTx(clientID, secret, redirectURI string) (*models.OauthClient, error)
 	AuthClient(clientID, secret string) (*models.OauthClient, error)
 	UserExists(username string) bool
 	FindUserByUsername(username string) (*models.OauthUser, error)
 	CreateUser(roleID, username, password string) (*models.OauthUser, error)
-	CreateUserTx(tx *gorm.DB, roleID, username, password string) (*models.OauthUser, error)
+	CreateUserTx(roleID, username, password string) (*models.OauthUser, error)
 	SetPassword(user *models.OauthUser, password string) error
-	SetPasswordTx(tx *gorm.DB, user *models.OauthUser, password string) error
-	UpdateUsername(user *models.OauthUser, username string) error
-	UpdateUsernameTx(db *gorm.DB, user *models.OauthUser, username string) error
+	SetPasswordTx(user *models.OauthUser, password string) error
+	//UpdateUsername(user *models.OauthUser, username string) error
+	//UpdateUsernameTx(db *gorm.DB, user *models.OauthUser, username string) error
 	AuthUser(username, thePassword string) (*models.OauthUser, error)
 	GetScope(requestedScope string) (string, error)
 	GetDefaultScope() string

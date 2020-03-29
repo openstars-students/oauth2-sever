@@ -1,6 +1,7 @@
 package oauth
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/tientruongcao51/oauth2-sever/models"
@@ -8,6 +9,7 @@ import (
 )
 
 func (s *Service) clientCredentialsGrant(r *http.Request, client *models.OauthClient) (*AccessTokenResponse, error) {
+	fmt.Println("oauth.clientCredentialsGrant")
 	// Get the scope string
 	scope, err := s.GetScope(r.Form.Get("scope"))
 	if err != nil {

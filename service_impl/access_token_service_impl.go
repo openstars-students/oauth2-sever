@@ -68,3 +68,34 @@ func (s *AccessTokenServiceImp) GetByToken(accessTokenCode string) (client *mode
 	fmt.Println(result)
 	return client, nil
 }
+
+
+func (s *AccessTokenServiceImp) Delete(accessTokenCode string, itemKeyClientUser string) (err error) {
+	bskey := generic.TStringKey("")
+	keyString := ""
+	if accessTokenCode != "" {
+		bskey = generic.TStringKey("access_token_key")
+		keyString = accessTokenCode
+	} else if itemKeyClientUser != "" {
+		bskey = generic.TStringKey("access_token")
+		keyString = itemKeyClientUser
+	}
+	itemkey := generic.TItemKey(keyString)
+	result, err := svClient.BsGetItem(bskey, itemkey)
+	if err != nil {
+		return err
+	}
+	if result != nil {
+		accessToken := new(models.OauthAccessToken)
+		err := json.Unmarshal(result.Value, &accessToken)
+		if err != nil {
+			return err
+		}
+		err = svClient.BsRemoveItem("access_token_key", generic.TItemKey(accessToken.Token))
+		err = svClient.BsRemoveItem("access_token", generic.TItemKey(models.GetItemKeyAccessToken(accessToken.ClientID.String, accessToken.UserID.String)))
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}

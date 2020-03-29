@@ -57,7 +57,7 @@ func Init(cnf *config.Config, db *gorm.DB) error {
 	}
 
 	if nil == reflect.TypeOf(OauthService) {
-		OauthService = oauth.NewService(cnf, db)
+		OauthService = oauth.NewService(cnf)
 	}
 
 	if nil == reflect.TypeOf(SessionService) {

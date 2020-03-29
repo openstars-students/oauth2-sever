@@ -1,7 +1,7 @@
 package log
 
 import (
-	"github.com/RichardKnop/logging"
+	"github.com/tientruongcao51/oauth2-sever/logging"
 )
 
 var (

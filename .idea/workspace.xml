@@ -2,21 +2,72 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d325d7b-64c9-4ac9-b650-35967aa429bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service_impl/refresh_token_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_impl/refresh_token_service_impl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/fixtures/test_fixtures1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/fixtures/test_fixtures2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/gometalinter.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/load.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/load_postgres_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/load_sqlite_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/load_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/package.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/row.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go-fixtures/row_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/gometalinter.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/jsonhal.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsonhal/jsonhal_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/migrations.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oauth2-server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging/default_formatter_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/logging/default_formatter_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/oauth.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/oauth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/access_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/access_token.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oauth/authenticate.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authenticate.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oauth/authorization_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authorization_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/refresh_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/refresh_token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth/grant_type_authorization_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_authorization_code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth/grant_type_client_credentials.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_client_credentials.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth/service_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/service_interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service_impl/access_token_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/access_token_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_impl/oauth_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/oauth_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_impl/oauth_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/oauth_service_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_impl/refresh_token_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/refresh_token_service_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/services.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/services.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-util/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-util/database.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-util/helpers.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-util/helpers.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -48,13 +99,51 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/service_impl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$/service_impl" />
     </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build main.go">
+    <configuration name="go build go-oauth2-server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="oauth2-sever" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/go-oauth2-server.go" />
+      <package value="github.com/tientruongcao51/oauth2-sever" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="oauth2-sever" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="github.com/tientruongcao51/oauth2-sever" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build oauth2-server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="oauth2-sever" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/oauth2-server.go" />
+      <package value="github.com/tientruongcao51/oauth2-sever" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Build.go build oauth2-server.go" />
+        <item itemvalue="Go Build.go build go-oauth2-server.go" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -68,25 +157,49 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1585241658414" />
-    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2" timestamp="1585247635777">
+    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2" timestamp="1585472760810">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585247635777" />
+    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585472760810" />
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1585505751497">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751497" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1585505751497">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751497" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1585505751496">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751496" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1585505751497">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751497" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1585241678848">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1585241678848" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585247637660">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585472763517">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585247637660" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585472763517" />
     <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585421155771">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585421155771" />
-    <state x="641" y="292" width="1037" height="586" key="find.popup" timestamp="1585418032035">
+    <state x="641" y="292" width="1037" height="586" key="find.popup" timestamp="1585505774614">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="641" y="292" width="1037" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585418032035" />
+    <state x="641" y="292" width="1037" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585505774614" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1585485645346">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585485645346" />
+    <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1585504993338">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585504993338" />
   </component>
 </project>

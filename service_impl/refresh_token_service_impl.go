@@ -39,7 +39,7 @@ func (s *RefreshTokenServiceImp) Put(itemKey string, refreshToken models.OauthRe
 	return nil
 }
 
-func (s *RefreshTokenServiceImp) GetByClientIdAndUserID(itemKey string) (client *models.OauthRefreshToken, err error) {
+func (s *RefreshTokenServiceImp) GetByClientIdAndUserID(itemKey string) (refreshToken *models.OauthRefreshToken, err error) {
 	bskey := generic.TStringKey("refresh_token")
 	itemkey := generic.TItemKey(itemKey)
 	result, err := svClient.BsGetItem(bskey, itemkey)
@@ -47,14 +47,14 @@ func (s *RefreshTokenServiceImp) GetByClientIdAndUserID(itemKey string) (client 
 		return nil, err
 	}
 	if result != nil {
-		err := json.Unmarshal(result.Value, &client)
+		err := json.Unmarshal(result.Value, &refreshToken)
 		fmt.Println(err)
 	}
 	fmt.Println(result)
-	return client, nil
+	return refreshToken, nil
 }
 
-func (s *RefreshTokenServiceImp) GetByToken(refreshTokenCode string) (client *models.OauthRefreshToken, err error) {
+func (s *RefreshTokenServiceImp) GetByToken(refreshTokenCode string) (refreshToken *models.OauthRefreshToken, err error) {
 	bskey := generic.TStringKey("refresh_token_key")
 	itemkey := generic.TItemKey(refreshTokenCode)
 	result, err := svClient.BsGetItem(bskey, itemkey)
@@ -62,9 +62,39 @@ func (s *RefreshTokenServiceImp) GetByToken(refreshTokenCode string) (client *mo
 		return nil, err
 	}
 	if result != nil {
-		err := json.Unmarshal(result.Value, &client)
+		err := json.Unmarshal(result.Value, &refreshToken)
 		fmt.Println(err)
 	}
 	fmt.Println(result)
-	return client, nil
+	return refreshToken, nil
+}
+
+func (s *RefreshTokenServiceImp) Delete(refreshTokenCode string, itemKeyClientUser string) (err error) {
+	bskey := generic.TStringKey("")
+	keyString := ""
+	if refreshTokenCode != "" {
+		bskey = generic.TStringKey("refresh_token_key")
+		keyString = refreshTokenCode
+	} else if itemKeyClientUser != "" {
+		bskey = generic.TStringKey("refresh_token")
+		keyString = itemKeyClientUser
+	}
+	itemkey := generic.TItemKey(keyString)
+	result, err := svClient.BsGetItem(bskey, itemkey)
+	if err != nil {
+		return err
+	}
+	if result != nil {
+		refreshToken := new(models.OauthRefreshToken)
+		err := json.Unmarshal(result.Value, &refreshToken)
+		if err != nil {
+			return err
+		}
+		err = svClient.BsRemoveItem("refresh_token_key", generic.TItemKey(refreshToken.Token))
+		err = svClient.BsRemoveItem("refresh_token", generic.TItemKey(models.GetItemKeyRefreshToken(refreshToken.ClientID.String, refreshToken.UserID.String)))
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }

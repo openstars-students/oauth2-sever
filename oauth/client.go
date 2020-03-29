@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/RichardKnop/uuid"
+	"github.com/tientruongcao51/oauth2-sever/uuid"
 	"github.com/tientruongcao51/oauth2-sever/models"
 	"github.com/tientruongcao51/oauth2-sever/service_impl"
 	"github.com/tientruongcao51/oauth2-sever/util"

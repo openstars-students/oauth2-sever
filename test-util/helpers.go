@@ -11,9 +11,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/RichardKnop/jsonhal"
 	"github.com/gorilla/mux"
 	"github.com/stretchr/testify/assert"
+	"github.com/tientruongcao51/oauth2-sever/jsonhal"
 	"github.com/tientruongcao51/oauth2-sever/util/response"
 )
 

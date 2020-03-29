@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/RichardKnop/go-fixtures"
+	"github.com/tientruongcao51/oauth2-sever/go-fixtures"
 )
 
 // LoadData loads fixtures

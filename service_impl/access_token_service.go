@@ -9,6 +9,7 @@ type AccessTokenService interface {
 	Put(itemKey string, client models.OauthAccessToken) (err error)
 	GetByClientIdAndUserID(itemKey string) (client *models.OauthAccessToken, err error)
 	GetByToken(itemKey string) (client *models.OauthAccessToken, err error)
+	Delete(accessTokenCode string, itemKeyClientUser string) (err error)
 }
 
 var AccessTokenServiceIns AccessTokenService
