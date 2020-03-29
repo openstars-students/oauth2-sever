@@ -6,8 +6,9 @@ import (
 )
 
 type AccessTokenService interface {
-	Put(bsKey string, client models.OauthAccessToken) (err error)
-	Get(bsKey string) (client *models.OauthAccessToken, err error)
+	Put(itemKey string, client models.OauthAccessToken) (err error)
+	GetByClientIdAndUserID(itemKey string) (client *models.OauthAccessToken, err error)
+	GetByToken(itemKey string) (client *models.OauthAccessToken, err error)
 }
 
 var AccessTokenServiceIns AccessTokenService

@@ -2,6 +2,7 @@ package oauth
 
 import (
 	"errors"
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -20,10 +21,10 @@ var (
 func (s *Service) Authenticate(token string) (*models.OauthAccessToken, error) {
 	// Fetch the access token from the database
 	accessToken := new(models.OauthAccessToken)
-	notFound := s.db.Where("token = ?", token).First(accessToken).RecordNotFound()
+	accessToken, _ = service_impl.AccessTokenServiceIns.GetByToken(token)
 
 	// Not found
-	if notFound {
+	if accessToken != nil {
 		return nil, ErrAccessTokenNotFound
 	}
 
@@ -34,10 +35,11 @@ func (s *Service) Authenticate(token string) (*models.OauthAccessToken, error) {
 
 	// Extend refresh token expiration database
 	query := s.db.Model(new(models.OauthRefreshToken)).Where("client_id = ?", accessToken.ClientID.String)
+	itemKey := ""
 	if accessToken.UserID.Valid {
-		query = query.Where("user_id = ?", accessToken.UserID.String)
+		itemKey = models.GetItemKeyRefreshToken(accessToken.ClientID.String, accessToken.UserID.String)
 	} else {
-		query = query.Where("user_id IS NULL")
+		itemKey = models.GetItemKeyRefreshToken(accessToken.ClientID.String, "")
 	}
 	increasedExpiresAt := gorm.NowFunc().Add(
 		time.Duration(s.cnf.Oauth.RefreshTokenLifetime) * time.Second,
@@ -45,6 +47,8 @@ func (s *Service) Authenticate(token string) (*models.OauthAccessToken, error) {
 	if err := query.UpdateColumn("expires_at", increasedExpiresAt).Error; err != nil {
 		return nil, err
 	}
+
+	service_impl.RefreshTokenServiceIns.Put(itemKey)
 
 	return accessToken, nil
 }

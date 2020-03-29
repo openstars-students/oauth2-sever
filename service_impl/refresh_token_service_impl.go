@@ -7,16 +7,16 @@ import (
 	"github.com/tientruongcao51/oauth2-sever/models"
 )
 
-type AccessTokenServiceImp struct {
+type RefreshTokenServiceImp struct {
 }
 
-func NewAccessTokenService() AccessTokenService {
-	return &AccessTokenServiceImp{}
+func NewRefreshTokenService() RefreshTokenService {
+	return &RefreshTokenServiceImp{}
 }
 
-func (s *AccessTokenServiceImp) Put(itemKey string, accessToken models.OauthAccessToken) (err error) {
-	bskey := generic.TStringKey("access_token")
-	json_app, _ := json.Marshal(accessToken)
+func (s *RefreshTokenServiceImp) Put(itemKey string, refreshToken models.OauthRefreshToken) (err error) {
+	bskey := generic.TStringKey("refresh_token")
+	json_app, _ := json.Marshal(refreshToken)
 	item := &generic.TItem{
 		Key:   []byte(itemKey),
 		Value: json_app,
@@ -26,9 +26,9 @@ func (s *AccessTokenServiceImp) Put(itemKey string, accessToken models.OauthAcce
 		return err
 	}
 
-	bskey = generic.TStringKey("access_token_key")
+	bskey = generic.TStringKey("refresh_token_key")
 	item = &generic.TItem{
-		Key:   []byte(accessToken.Token),
+		Key:   []byte(refreshToken.Token),
 		Value: json_app,
 	}
 	err = svClient.BsPutItem(bskey, item)
@@ -39,8 +39,8 @@ func (s *AccessTokenServiceImp) Put(itemKey string, accessToken models.OauthAcce
 	return nil
 }
 
-func (s *AccessTokenServiceImp) GetByClientIdAndUserID(itemKey string) (client *models.OauthAccessToken, err error) {
-	bskey := generic.TStringKey("access_token")
+func (s *RefreshTokenServiceImp) GetByClientIdAndUserID(itemKey string) (client *models.OauthRefreshToken, err error) {
+	bskey := generic.TStringKey("refresh_token")
 	itemkey := generic.TItemKey(itemKey)
 	result, err := svClient.BsGetItem(bskey, itemkey)
 	if err != nil {
@@ -54,9 +54,9 @@ func (s *AccessTokenServiceImp) GetByClientIdAndUserID(itemKey string) (client *
 	return client, nil
 }
 
-func (s *AccessTokenServiceImp) GetByToken(accessTokenCode string) (client *models.OauthAccessToken, err error) {
-	bskey := generic.TStringKey("access_token_key")
-	itemkey := generic.TItemKey(accessTokenCode)
+func (s *RefreshTokenServiceImp) GetByToken(refreshTokenCode string) (client *models.OauthRefreshToken, err error) {
+	bskey := generic.TStringKey("refresh_token_key")
+	itemkey := generic.TItemKey(refreshTokenCode)
 	result, err := svClient.BsGetItem(bskey, itemkey)
 	if err != nil {
 		return nil, err

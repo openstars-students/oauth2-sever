@@ -36,7 +36,7 @@ func (s *Service) getValidAuthorizationCode(code, redirectURI string, client *mo
 	// Fetch the auth code from the database
 	authorizationCode := new(models.OauthAuthorizationCode)
 
-	bsKey := models.GetBsKeyAuthorizationToken(code, client.ID, "")
+	bsKey := models.GetItemKeyAuthorizationToken(code, client.ID, "")
 
 	authorizationCode, err := service_impl.OauthServiceIns.Get(bsKey)
 

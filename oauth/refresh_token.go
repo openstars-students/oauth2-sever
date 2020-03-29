@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
 	"github.com/tientruongcao51/oauth2-sever/util"
 )
 
@@ -22,29 +23,31 @@ var (
 func (s *Service) GetOrCreateRefreshToken(client *models.OauthClient, user *models.OauthUser, expiresIn int, scope string) (*models.OauthRefreshToken, error) {
 	// Try to fetch an existing refresh token first
 	refreshToken := new(models.OauthRefreshToken)
-	query := models.OauthRefreshTokenPreload(s.db).Where("client_id = ?", client.ID)
+	itemKey := ""
 	if user != nil && len([]rune(user.ID)) > 0 {
-		query = query.Where("user_id = ?", user.ID)
+		itemKey = models.GetItemKeyRefreshToken(client.ID, user.ID)
 	} else {
-		query = query.Where("user_id IS NULL")
+		itemKey = models.GetItemKeyRefreshToken(client.ID, "")
 	}
-	found := !query.First(refreshToken).RecordNotFound()
+
+	refreshToken, err := service_impl.RefreshTokenServiceIns.GetByClientIdAndUserID(itemKey)
 
 	// Check if the token is expired, if found
 	var expired bool
-	if found {
+	if refreshToken != nil && err == nil {
 		expired = time.Now().UTC().After(refreshToken.ExpiresAt)
 	}
 
 	// If the refresh token has expired, delete it
-	if expired {
+	/*if expired {
 		s.db.Unscoped().Delete(refreshToken)
-	}
+	}*/
 
 	// Create a new refresh token if it expired or was not found
-	if expired || !found {
+	if expired || refreshToken == nil {
 		refreshToken = models.NewOauthRefreshToken(client, user, expiresIn, scope)
-		if err := s.db.Create(refreshToken).Error; err != nil {
+		err := service_impl.RefreshTokenServiceIns.Put(itemKey, *refreshToken)
+		if err != nil {
 			return nil, err
 		}
 		refreshToken.Client = client
@@ -57,12 +60,9 @@ func (s *Service) GetOrCreateRefreshToken(client *models.OauthClient, user *mode
 // GetValidRefreshToken returns a valid non expired refresh token
 func (s *Service) GetValidRefreshToken(token string, client *models.OauthClient) (*models.OauthRefreshToken, error) {
 	// Fetch the refresh token from the database
-	refreshToken := new(models.OauthRefreshToken)
-	notFound := models.OauthRefreshTokenPreload(s.db).Where("client_id = ?", client.ID).
-		Where("token = ?", token).First(refreshToken).RecordNotFound()
-
+	refreshToken, err := service_impl.RefreshTokenServiceIns.GetByToken(token)
 	// Not found
-	if notFound {
+	if err != nil {
 		return nil, ErrRefreshTokenNotFound
 	}
 

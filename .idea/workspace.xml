@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d325d7b-64c9-4ac9-b650-35967aa429bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service_impl/access_token_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_impl/oauth_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_impl/oauth_service_impl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service_impl/refresh_token_service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service_impl/refresh_token_service_impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/oauth.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/oauth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oauth/access_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/access_token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth/authenticate.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authenticate.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oauth/authorization_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authorization_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/client_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/client_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/client_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/client_service_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth/refresh_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/refresh_token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_impl/access_token_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/access_token_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,25 +68,25 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1585241658414" />
-    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2" timestamp="1585241839515">
+    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2" timestamp="1585247635777">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585241839515" />
+    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585247635777" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1585241678848">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1585241678848" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585241789956">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585247637660">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585241789956" />
-    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585244693700">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585247637660" />
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585421155771">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585244693700" />
-    <state x="641" y="292" width="863" height="586" key="find.popup" timestamp="1585246462951">
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585421155771" />
+    <state x="641" y="292" width="1037" height="586" key="find.popup" timestamp="1585418032035">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="641" y="292" width="863" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585246462951" />
+    <state x="641" y="292" width="1037" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585418032035" />
   </component>
 </project>
