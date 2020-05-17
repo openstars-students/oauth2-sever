@@ -1,73 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d325d7b-64c9-4ac9-b650-35967aa429bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/go-fixtures/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/fixtures/test_fixtures1.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/fixtures/test_fixtures2.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/gometalinter.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/load.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/load_postgres_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/load_sqlite_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/load_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/package.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/row.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go-fixtures/row_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/gometalinter.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/jsonhal.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonhal/jsonhal_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/migrations.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-server.go" afterDir="false" />
+    <list default="true" id="5d325d7b-64c9-4ac9-b650-35967aa429bc" name="Default Changelist" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging/default_formatter_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/logging/default_formatter_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/oauth.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/oauth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/authenticate.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authenticate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/authorization_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/authorization_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_authorization_code.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_authorization_code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/grant_type_client_credentials.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/grant_type_client_credentials.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/service_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/service_interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/access_token_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/access_token_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/access_token_service_impl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/oauth_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/oauth_service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/oauth_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/oauth_service_impl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_impl/refresh_token_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/refresh_token_service_impl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/services.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/services.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-util/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-util/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-util/helpers.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-util/helpers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2-server.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_impl/user_service_impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/service_impl/user_service_impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/register.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,7 +26,6 @@
   <component name="ProjectId" id="1ZfsnFyCszm1XiRmZqHf8ZmFjGk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -109,16 +51,7 @@
       <recent name="$PROJECT_DIR$/service_impl" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
-    <configuration name="go build go-oauth2-server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="oauth2-sever" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/go-oauth2-server.go" />
-      <package value="github.com/tientruongcao51/oauth2-sever" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Build.go build oauth2-server.go">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="oauth2-sever" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -137,69 +70,218 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="TestAuthorizationCodeGrantEmptyNotFound in github.com/tientruongcao51/oauth2-sever/oauth" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="oauth2-sever" />
+      <working_directory value="$PROJECT_DIR$/oauth" />
+      <parameters value=" -testify.m ^TestAuthorizationCodeGrantEmptyNotFound$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/tientruongcao51/oauth2-sever/oauth" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestPasswordGrant in github.com/tientruongcao51/oauth2-sever/oauth" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="oauth2-sever" />
+      <working_directory value="$PROJECT_DIR$/oauth" />
+      <parameters value=" -testify.m ^TestPasswordGrant$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/tientruongcao51/oauth2-sever/oauth" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestRefreshTokenGrantEmptyNotFound in github.com/tientruongcao51/oauth2-sever/oauth" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="oauth2-sever" />
+      <working_directory value="$PROJECT_DIR$/oauth" />
+      <parameters value=" -testify.m ^TestRefreshTokenGrantEmptyNotFound$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/tientruongcao51/oauth2-sever/oauth" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="ShConfigurationType">
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="oauth2-sever.go runserver" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build main.go" />
+      <item itemvalue="Go Build.go build oauth2-server.go" />
+      <item itemvalue="Go Test.TestAuthorizationCodeGrantEmptyNotFound in github.com/tientruongcao51/oauth2-sever/oauth" />
+      <item itemvalue="Go Test.TestPasswordGrant in github.com/tientruongcao51/oauth2-sever/oauth" />
+      <item itemvalue="Go Test.TestRefreshTokenGrantEmptyNotFound in github.com/tientruongcao51/oauth2-sever/oauth" />
+      <item itemvalue="Shell Script.test" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build oauth2-server.go" />
-        <item itemvalue="Go Build.go build go-oauth2-server.go" />
+        <item itemvalue="Go Test.TestAuthorizationCodeGrantEmptyNotFound in github.com/tientruongcao51/oauth2-sever/oauth" />
+        <item itemvalue="Go Test.TestRefreshTokenGrantEmptyNotFound in github.com/tientruongcao51/oauth2-sever/oauth" />
+        <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Test.TestPasswordGrant in github.com/tientruongcao51/oauth2-sever/oauth" />
       </list>
     </recent_temporary>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="588" y="214" width="800" height="677" key="#Notifications" timestamp="1585241658414">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="579" y="214" width="800" height="677" key="#Notifications" timestamp="1589383072315">
+      <screen x="55" y="27" width="1865" height="1053" />
     </state>
+    <state x="579" y="214" key="#Notifications/55.27.1865.1053@55.27.1865.1053" timestamp="1589383072315" />
     <state x="588" y="214" width="800" height="677" key="#Notifications/67.27.1853.1053@67.27.1853.1053" timestamp="1585241658414" />
-    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2" timestamp="1585472760810">
+    <state x="502" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589731390831">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="502" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1589731390831" />
+    <state x="670" y="357" width="620" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589729392025">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="670" y="357" width="620" height="396" key="#com.intellij.fileTypes.FileTypeChooser/55.27.1865.1053@55.27.1865.1053" timestamp="1589729392025" />
+    <state x="678" y="357" width="620" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1585594078206" />
+    <state x="770" y="260" width="424" height="584" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1589731072608">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="770" y="260" width="424" height="584" key="#com.intellij.ide.macro.MacrosDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1589731072608" />
+    <state x="667" y="179" width="642" height="746" key="#go_build_main.go" timestamp="1585591472060">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585472760810" />
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1585505751497">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="667" y="179" width="642" height="746" key="#go_build_main.go/67.27.1853.1053@67.27.1853.1053" timestamp="1585591472060" />
+    <state x="649" y="278" width="666" height="549" key="#test" timestamp="1589731394597">
+      <screen x="55" y="27" width="1865" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751497" />
-    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1585505751497">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="649" y="278" width="666" height="549" key="#test/55.27.1865.1053@55.27.1865.1053" timestamp="1589731394597" />
+    <state x="435" y="129" width="1065" height="904" key="CommitChangelistDialog2" timestamp="1589730553011">
+      <screen x="55" y="27" width="1865" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751497" />
-    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1585505751496">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="435" y="129" width="1065" height="904" key="CommitChangelistDialog2/55.27.1865.1053@55.27.1865.1053" timestamp="1589730553011" />
+    <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585505839769" />
+    <state x="155" y="125" width="1665" height="855" key="DiffContextDialog" timestamp="1589385934196">
+      <screen x="55" y="27" width="1865" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751496" />
-    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1585505751497">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="155" y="125" width="1665" height="855" key="DiffContextDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1589385934196" />
+    <state width="1819" height="278" key="GridCell.Tab.0.bottom" timestamp="1589731485456">
+      <screen x="55" y="27" width="1865" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585505751497" />
+    <state width="1819" height="278" key="GridCell.Tab.0.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1589731485456" />
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326748" />
+    <state width="1819" height="278" key="GridCell.Tab.0.center" timestamp="1589731485456">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.center/55.27.1865.1053@55.27.1865.1053" timestamp="1589731485456" />
+    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326747" />
+    <state width="1819" height="278" key="GridCell.Tab.0.left" timestamp="1589731485455">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.left/55.27.1865.1053@55.27.1865.1053" timestamp="1589731485455" />
+    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326746" />
+    <state width="1819" height="278" key="GridCell.Tab.0.right" timestamp="1589731485456">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="278" key="GridCell.Tab.0.right/55.27.1865.1053@55.27.1865.1053" timestamp="1589731485456" />
+    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326747" />
+    <state width="1819" height="344" key="GridCell.Tab.1.bottom" timestamp="1589731104526">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1589731104526" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326750" />
+    <state width="1819" height="344" key="GridCell.Tab.1.center" timestamp="1589731104525">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.center/55.27.1865.1053@55.27.1865.1053" timestamp="1589731104525" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326749" />
+    <state width="1819" height="344" key="GridCell.Tab.1.left" timestamp="1589731104525">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.left/55.27.1865.1053@55.27.1865.1053" timestamp="1589731104525" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326748" />
+    <state width="1819" height="344" key="GridCell.Tab.1.right" timestamp="1589731104525">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state width="1819" height="344" key="GridCell.Tab.1.right/55.27.1865.1053@55.27.1865.1053" timestamp="1589731104525" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326749" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1585241678848">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1585241678848" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585472763517">
+    <state x="579" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1589733934744">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="579" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/55.27.1865.1053@55.27.1865.1053" timestamp="1589733934744" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585505841631" />
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585590778619">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585472763517" />
-    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585421155771">
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585590778619" />
+    <state x="806" y="203" width="432" height="679" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589386360648">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="806" y="203" width="432" height="679" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/55.27.1865.1053@55.27.1865.1053" timestamp="1589386360648" />
+    <state x="813" y="203" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1585506592768" />
+    <state x="633" y="294" width="1044" height="586" key="find.popup" timestamp="1589733987197">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="633" y="294" width="1044" height="586" key="find.popup/55.27.1865.1053@55.27.1865.1053" timestamp="1589733987197" />
+    <state x="641" y="294" width="1037" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585594092258" />
+    <state x="648" y="257" width="677" height="678" key="search.everywhere.popup" timestamp="1589386397441">
+      <screen x="55" y="27" width="1865" height="1053" />
+    </state>
+    <state x="648" y="257" width="677" height="678" key="search.everywhere.popup/55.27.1865.1053@55.27.1865.1053" timestamp="1589386397441" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585590142003" />
+    <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1585580228270">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585421155771" />
-    <state x="641" y="292" width="1037" height="586" key="find.popup" timestamp="1585505774614">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="641" y="292" width="1037" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585505774614" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1585485645346">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585485645346" />
-    <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1585504993338">
-      <screen x="67" y="27" width="1853" height="1053" />
-    </state>
-    <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585504993338" />
+    <state x="718" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585580228270" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/oauth/grant_type_password_test.go</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/oauth/grant_type_password_test.go</url>
+          <line>32</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/oauth/grant_type_password_test.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/oauth/client.go</url>
+          <line>93</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/oauth/client.go</url>
+          <line>26</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/oauth/client.go</url>
+          <line>34</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

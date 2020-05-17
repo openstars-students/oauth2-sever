@@ -19,6 +19,9 @@ func UserNewService() UserService {
 
 func (s *UserServiceImp) Put(bsKey string, itemKey string, user models.OauthUser) (Username string, err error) {
 	bskey := generic.TStringKey(bsKey)
+	if user.Username == "" {
+		return "", errors.New("Username is nil")
+	}
 	json_app, _ := json.Marshal(user)
 	item := &generic.TItem{
 		Key:   []byte(itemKey),
@@ -34,6 +37,9 @@ func (s *UserServiceImp) Put(bsKey string, itemKey string, user models.OauthUser
 func (s *UserServiceImp) Get(bs string, username string) (user models.OauthUser, err error) {
 	bskey := generic.TStringKey(bs)
 	itemkey := generic.TItemKey(username)
+	if username == "" {
+		return user, errors.New("Errors in Get User from BS")
+	}
 	result, _ := svClient.BsGetItem(bskey, itemkey)
 	if result != nil {
 		err = json.Unmarshal(result.Value, &user)
