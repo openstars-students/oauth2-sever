@@ -1,10 +1,12 @@
 package web
 
 import (
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"net/http"
 )
 
 func (s *Service) logout(w http.ResponseWriter, r *http.Request) {
+	log.INFO.Println("web.logout")
 	// Get the session service from the request context
 	sessionService, err := getSessionService(r)
 	if err != nil {

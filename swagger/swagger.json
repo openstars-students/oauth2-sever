@@ -15,70 +15,6 @@
     },
     "basePath": "/v1",
     "paths": {
-        "/application/application": {
-            "post": {
-                "tags": [
-                    "application"
-                ],
-                "description": "create users",
-                "operationId": "ApplicationController.Create App",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for Application content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.OauthClient"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string}"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/application/{bsKey}/{itemKey}": {
-            "get": {
-                "tags": [
-                    "application"
-                ],
-                "description": "get user by uid",
-                "operationId": "ApplicationController.Get",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "bsKey",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "itemKey",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.Application"
-                        }
-                    },
-                    "403": {
-                        "description": ":bsKey is empty"
-                    }
-                }
-            }
-        },
         "/authorize/": {
             "post": {
                 "tags": [
@@ -154,6 +90,63 @@
                     },
                     "403": {
                         "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/client/putClient": {
+            "post": {
+                "tags": [
+                    "client"
+                ],
+                "description": "create client app",
+                "operationId": "ClientController.Create App",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "clientId",
+                        "description": "clientId",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ClientDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string}"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/client/{clientID}": {
+            "get": {
+                "tags": [
+                    "client"
+                ],
+                "description": "get user by uid",
+                "operationId": "ClientController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "clientID",
+                        "description": "The key for client(clientId)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Application"
+                        }
+                    },
+                    "403": {
+                        "description": ":client is empty"
                     }
                 }
             }
@@ -355,6 +348,21 @@
         }
     },
     "definitions": {
+        "controllers.ClientDto": {
+            "title": "ClientDto",
+            "type": "object",
+            "properties": {
+                "Key": {
+                    "type": "string"
+                },
+                "RedirectURI": {
+                    "type": "string"
+                },
+                "Secret": {
+                    "type": "string"
+                }
+            }
+        },
         "models.Application": {
             "title": "Application",
             "type": "object",
@@ -379,57 +387,6 @@
                 },
                 "ImageURL": {
                     "type": "string"
-                }
-            }
-        },
-        "models.MyGormModel": {
-            "title": "MyGormModel",
-            "type": "object",
-            "properties": {
-                "CreatedAt": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "DeletedAt": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "ID": {
-                    "type": "string"
-                },
-                "UpdatedAt": {
-                    "type": "string",
-                    "format": "datetime"
-                }
-            }
-        },
-        "models.OauthClient": {
-            "title": "OauthClient",
-            "type": "object",
-            "properties": {
-                "CreatedAt": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "DeletedAt": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "ID": {
-                    "type": "string"
-                },
-                "Key": {
-                    "type": "string"
-                },
-                "RedirectURI": {
-                    "$ref": "#/definitions/sql.NullString"
-                },
-                "Secret": {
-                    "type": "string"
-                },
-                "UpdatedAt": {
-                    "type": "string",
-                    "format": "datetime"
                 }
             }
         },
@@ -489,15 +446,11 @@
         "path": {
             "title": "path",
             "type": "object"
-        },
-        "sql.NullString": {
-            "title": "NullString",
-            "type": "object"
         }
     },
     "tags": [
         {
-            "name": "application",
+            "name": "client",
             "description": "Operations about Users\n"
         },
         {

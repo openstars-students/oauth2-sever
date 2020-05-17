@@ -11,7 +11,7 @@ var (
 	configLoaded   bool
 	dialTimeout    = 5 * time.Second
 	contextTimeout = 5 * time.Second
-	reloadDelay    = time.Second * 10
+	reloadDelay    = time.Second * 1000
 )
 
 // Cnf ...
@@ -80,7 +80,7 @@ func NewConfig(mustLoadOnce bool, keepReloading bool, backendType string) *Confi
 		log.INFO.Print("Successfully loaded config for the first time")
 	}
 
-	if keepReloading {
+	/*	if keepReloading {
 		// Open a goroutine to watch remote changes forever
 		go func() {
 			for {
@@ -102,7 +102,7 @@ func NewConfig(mustLoadOnce bool, keepReloading bool, backendType string) *Confi
 				log.INFO.Print("Successfully reloaded config")
 			}
 		}()
-	}
+	}*/
 
 	return Cnf
 }

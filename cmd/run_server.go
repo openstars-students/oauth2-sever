@@ -13,7 +13,7 @@ import (
 
 // RunServer runs the app
 func RunServer(configBackend string) error {
-	cnf, db, err := initConfigDB(true, true, configBackend)
+	cnf, db, err := initConfigDB(true, false, configBackend)
 	if err != nil {
 		return err
 	}

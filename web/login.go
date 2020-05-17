@@ -1,12 +1,14 @@
 package web
 
 import (
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"net/http"
 
 	"github.com/tientruongcao51/oauth2-sever/session"
 )
 
 func (s *Service) loginForm(w http.ResponseWriter, r *http.Request) {
+	log.INFO.Print("web.loginForm")
 	// Get the session service from the request context
 	sessionService, err := getSessionService(r)
 	if err != nil {
@@ -23,6 +25,7 @@ func (s *Service) loginForm(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Service) login(w http.ResponseWriter, r *http.Request) {
+	log.INFO.Print("web.login")
 	// Get the session service from the request context
 	sessionService, err := getSessionService(r)
 	if err != nil {

@@ -1,6 +1,7 @@
 package web
 
 import (
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"net/http"
 
 	"github.com/gorilla/context"
@@ -59,6 +60,7 @@ func newLoggedInMiddleware(service ServiceInterface) *loggedInMiddleware {
 
 // ServeHTTP as per the negroni.Handler interface
 func (m *loggedInMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	log.INFO.Println("web.loggedInMiddleware.ServeHTTP")
 	// Initialise the session service
 	m.service.setSessionService(r, w)
 	sessionService := m.service.GetSessionService()
@@ -95,6 +97,7 @@ func (m *loggedInMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request, n
 }
 
 func (m *loggedInMiddleware) authenticate(userSession *session.UserSession) error {
+	log.INFO.Println("web.loggedInMiddleware.authenticate")
 	// Try to authenticate with the stored access token
 	_, err := m.service.GetOauthService().Authenticate(userSession.AccessToken)
 	if err == nil {
@@ -144,11 +147,13 @@ type clientMiddleware struct {
 
 // newClientMiddleware creates a new clientMiddleware instance
 func newClientMiddleware(service ServiceInterface) *clientMiddleware {
+	log.INFO.Println("web.loggedInMiddleware.newClientMiddleware")
 	return &clientMiddleware{service: service}
 }
 
 // ServeHTTP as per the negroni.Handler interface
 func (m *clientMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	log.INFO.Println("web.loggedInMiddleware.ServeHTTP")
 	// Fetch the client
 	client, err := m.service.GetOauthService().FindClientByClientID(
 		r.Form.Get("client_id"), // client ID

@@ -3,6 +3,7 @@ package web
 import (
 	"errors"
 	"fmt"
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -15,6 +16,7 @@ import (
 var ErrIncorrectResponseType = errors.New("Response type not one of token or code")
 
 func (s *Service) authorizeForm(w http.ResponseWriter, r *http.Request) {
+	log.INFO.Print("web.authorizeForm")
 	sessionService, client, _, responseType, _, err := s.authorizeCommon(r)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
@@ -34,6 +36,7 @@ func (s *Service) authorizeForm(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Service) authorize(w http.ResponseWriter, r *http.Request) {
+	log.INFO.Print("web.authorize")
 	_, client, user, responseType, redirectURI, err := s.authorizeCommon(r)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
@@ -121,6 +124,7 @@ func (s *Service) authorize(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Service) authorizeCommon(r *http.Request) (session.ServiceInterface, *models.OauthClient, *models.OauthUser, string, *url.URL, error) {
+	log.INFO.Print("web.authorizeCommon")
 	// Get the session service from the request context
 	sessionService, err := getSessionService(r)
 	if err != nil {
@@ -156,7 +160,7 @@ func (s *Service) authorizeCommon(r *http.Request) (session.ServiceInterface, *m
 	// Fallback to the client redirect URI if not in query string
 	redirectURI := r.Form.Get("redirect_uri")
 	if redirectURI == "" {
-		redirectURI = client.RedirectURI.String
+		redirectURI = client.RedirectURI
 	}
 
 	// // Parse the redirect URL

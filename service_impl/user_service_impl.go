@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService/bigset/thrift/gen-go/openstars/core/bigset/generic"
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"github.com/tientruongcao51/oauth2-sever/models"
 )
 
@@ -40,6 +41,8 @@ func (s *UserServiceImp) Get(bs string, username string) (user models.OauthUser,
 	if err != nil {
 		return user, errors.New("Errors in Get User from BS")
 	}
+	log.INFO.Println("user info :")
+	log.INFO.Println(user)
 	return user, nil
 }
 

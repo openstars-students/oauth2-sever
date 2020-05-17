@@ -6,6 +6,7 @@ import (
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService"
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService/bigset/thrift/gen-go/openstars/core/bigset/generic"
 	"github.com/OpenStars/GoEndpointManager/GoEndpointBackendManager"
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"github.com/tientruongcao51/oauth2-sever/models"
 	"sync"
 )
@@ -39,6 +40,7 @@ func (s *ClientServiceImp) Put(clientID string, client models.OauthClient) (err 
 		Key:   []byte(clientID),
 		Value: json_app,
 	}
+	print("BsPutItem " + bskey)
 	err = svClient.BsPutItem(bskey, item)
 	if err != nil {
 		return err
@@ -49,15 +51,20 @@ func (s *ClientServiceImp) Put(clientID string, client models.OauthClient) (err 
 func (s *ClientServiceImp) Get(clientID string) (client *models.OauthClient, err error) {
 	bskey := generic.TStringKey("client")
 	itemkey := generic.TItemKey(clientID)
+	fmt.Print(clientID)
 	result, err := svClient.BsGetItem(bskey, itemkey)
 	if err != nil {
+		log.INFO.Println("err:")
+		log.INFO.Println(err)
 		return nil, err
 	}
 	if result != nil {
 		err := json.Unmarshal(result.Value, &client)
-		fmt.Println(err)
+		log.INFO.Println("err:")
+		log.INFO.Println(err)
 	}
-	fmt.Println(result)
+	log.INFO.Println("client info :")
+	log.INFO.Println(client)
 	return client, nil
 }
 

@@ -1,6 +1,7 @@
 package web
 
 import (
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"net/http"
 
 	"github.com/tientruongcao51/oauth2-sever/oauth/roles"
@@ -23,6 +24,7 @@ func (s *Service) registerForm(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Service) register(w http.ResponseWriter, r *http.Request) {
+	log.INFO.Print("web.register")
 	// Get the session service from the request context
 	sessionService, err := getSessionService(r)
 	if err != nil {

@@ -17,9 +17,7 @@ func init() {
 	// Initialise a CLI app
 	cliApp = cli.NewApp()
 	cliApp.Name = "oauth2-sever"
-	cliApp.Usage = "Go OAuth 2.0 Server"
-	//cliApp.Author = "Richard Knop"
-	//cliApp.Email = "risoknop@gmail.com"
+	cliApp.Usage = "OAuth 2.0 Server"
 	cliApp.Version = "0.0.0"
 	cliApp.Flags = []cli.Flag{
 		&cli.StringFlag{
@@ -32,7 +30,7 @@ func init() {
 
 func main() {
 	// Set the CLI app commands
-	cliApp.Commands = []*cli.Command{
+	cliApp.Commands = []cli.Command{
 		{
 			Name:  "runserver",
 			Usage: "run web server",

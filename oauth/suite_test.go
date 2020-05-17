@@ -11,7 +11,6 @@ import (
 	"github.com/tientruongcao51/oauth2-sever/log"
 	"github.com/tientruongcao51/oauth2-sever/models"
 	"github.com/tientruongcao51/oauth2-sever/oauth"
-	"github.com/tientruongcao51/oauth2-sever/test-util"
 )
 
 var (
@@ -39,8 +38,8 @@ func init() {
 // OauthTestSuite needs to be exported so the tests run
 type OauthTestSuite struct {
 	suite.Suite
-	cnf     *config.Config
-	db      *gorm.DB
+	cnf *config.Config
+	/*db      *gorm.DB*/
 	service *oauth.Service
 	clients []*models.OauthClient
 	users   []*models.OauthUser
@@ -54,7 +53,7 @@ func (suite *OauthTestSuite) SetupSuite() {
 	suite.cnf = config.NewConfig(false, false, "etcd")
 
 	// Create the test database
-	db, err := testutil.CreateTestDatabasePostgres(
+	/*db, err := testutil.CreateTestDatabasePostgres(
 		suite.cnf.Database.Host,
 		testDbUser,
 		testDbName,
@@ -64,22 +63,22 @@ func (suite *OauthTestSuite) SetupSuite() {
 	if err != nil {
 		log.ERROR.Fatal(err)
 	}
-	suite.db = db
+	suite.db = db*/
 
 	// Fetch test client
 	suite.clients = make([]*models.OauthClient, 0)
-	if err := suite.db.Order("created_at").Find(&suite.clients).Error; err != nil {
-		log.ERROR.Fatal(err)
-	}
+	/*	if err := suite.db.Order("created_at").Find(&suite.clients).Error; err != nil {
+			log.ERROR.Fatal(err)
+		}
 
-	// Fetch test users
-	suite.users = make([]*models.OauthUser, 0)
-	if err := suite.db.Order("created_at").Find(&suite.users).Error; err != nil {
-		log.ERROR.Fatal(err)
-	}
+		// Fetch test users
+		suite.users = make([]*models.OauthUser, 0)
+		if err := suite.db.Order("created_at").Find(&suite.users).Error; err != nil {
+			log.ERROR.Fatal(err)
+		}*/
 
 	// Initialise the service
-	suite.service = oauth.NewService(suite.cnf, suite.db)
+	suite.service = oauth.NewService(suite.cnf)
 
 	// Register routes
 	suite.router = mux.NewRouter()

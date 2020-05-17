@@ -61,16 +61,18 @@ func (s *Service) Authenticate(token string) (*models.OauthAccessToken, error) {
 func (s *Service) ClearUserTokens(userSession *session.UserSession) {
 	fmt.Println("oauth.ClearUserTokens")
 	// Clear all refresh tokens with user_id and client_id
-	refreshToken := new(models.OauthRefreshToken)
+	service_impl.RefreshTokenServiceIns.Delete(userSession.RefreshToken, "")
+	/*refreshToken := new(models.OauthRefreshToken)
 	found := !models.OauthRefreshTokenPreload(s.db).Where("token = ?", userSession.RefreshToken).First(refreshToken).RecordNotFound()
 	if found {
 		s.db.Unscoped().Where("client_id = ? AND user_id = ?", refreshToken.ClientID, refreshToken.UserID).Delete(models.OauthRefreshToken{})
-	}
+	}*/
 
 	// Clear all access tokens with user_id and client_id
-	accessToken := new(models.OauthAccessToken)
+	service_impl.AccessTokenServiceIns.Delete(userSession.AccessToken, "")
+	/*accessToken := new(models.OauthAccessToken)
 	found = !models.OauthAccessTokenPreload(s.db).Where("token = ?", userSession.AccessToken).First(accessToken).RecordNotFound()
 	if found {
 		s.db.Unscoped().Where("client_id = ? AND user_id = ?", accessToken.ClientID, accessToken.UserID).Delete(models.OauthAccessToken{})
-	}
+	}*/
 }

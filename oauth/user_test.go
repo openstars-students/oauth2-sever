@@ -3,13 +3,13 @@ package oauth_test
 import (
 	"time"
 
-	"github.com/tientruongcao51/oauth2-sever/uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/tientruongcao51/oauth2-sever/models"
 	"github.com/tientruongcao51/oauth2-sever/oauth"
 	"github.com/tientruongcao51/oauth2-sever/oauth/roles"
 	"github.com/tientruongcao51/oauth2-sever/util"
 	pass "github.com/tientruongcao51/oauth2-sever/util/password"
+	"github.com/tientruongcao51/oauth2-sever/uuid"
 )
 
 func (suite *OauthTestSuite) TestUserExistsFindsValidUser() {
@@ -22,7 +22,7 @@ func (suite *OauthTestSuite) TestUserExistsDoesntFindInvalidUser() {
 	assert.False(suite.T(), suite.service.UserExists(invalidUsername))
 }
 
-func (suite *OauthTestSuite) TestUpdateUsernameWorksWithValidEntry() {
+/*func (suite *OauthTestSuite) TestUpdateUsernameWorksWithValidEntry() {
 	user, err := suite.service.CreateUser(
 		roles.User,      // role ID
 		"test@newuser",  // username
@@ -80,7 +80,7 @@ func (suite *OauthTestSuite) TestUpdateUsernameFailsWithABlankEntry() {
 	assert.EqualError(suite.T(), err, oauth.ErrCannotSetEmptyUsername.Error())
 
 	assert.NotEqual(suite.T(), newUsername, user.Username)
-}
+}*/
 
 func (suite *OauthTestSuite) TestFindUserByUsername() {
 	var (

@@ -27,7 +27,7 @@ func (suite *OauthTestSuite) TestGrantAuthorizationCode() {
 	// Correct authorization code object should be returned
 	if assert.NotNil(suite.T(), authorizationCode) {
 		// Fetch all auth codes
-		models.OauthAuthorizationCodePreload(suite.db).Order("created_at").Find(&codes)
+		/*models.OauthAuthorizationCodePreload(suite.db).Order("created_at").Find(&codes)*/
 
 		// There should be just one right now
 		assert.Equal(suite.T(), 1, len(codes))

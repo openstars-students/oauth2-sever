@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/jinzhu/gorm"
 	"github.com/tientruongcao51/oauth2-sever/util"
 	"github.com/tientruongcao51/oauth2-sever/uuid"
 )
@@ -12,9 +11,9 @@ import (
 // OauthClient ...
 type OauthClient struct {
 	MyGormModel
-	Key         string         `sql:"type:varchar(254);unique;not null"`
-	Secret      string         `sql:"type:varchar(60);not null"`
-	RedirectURI sql.NullString `sql:"type:varchar(200)"`
+	Key         string `sql:"type:varchar(254);unique;not null"`
+	Secret      string `sql:"type:varchar(60);not null"`
+	RedirectURI string `sql:"type:varchar(200)"`
 }
 
 // TableName specifies table name
@@ -192,7 +191,7 @@ func GetItemKeyAuthorizationToken(clientId string, userId string) string {
 	return clientId + "_" + userId
 }
 
-// OauthAuthorizationCodePreload sets up Gorm preloads for an auth code object
+/*// OauthAuthorizationCodePreload sets up Gorm preloads for an auth code object
 func OauthAuthorizationCodePreload(db *gorm.DB) *gorm.DB {
 	return OauthAuthorizationCodePreloadWithPrefix(db, "")
 }
@@ -227,3 +226,4 @@ func OauthRefreshTokenPreloadWithPrefix(db *gorm.DB, prefix string) *gorm.DB {
 	return db.
 		Preload(prefix + "Client").Preload(prefix + "User")
 }
+*/

@@ -2,14 +2,14 @@ package oauth
 
 import (
 	"errors"
+	"github.com/tientruongcao51/oauth2-sever/log"
 	"strings"
 	"time"
 
-	"github.com/tientruongcao51/oauth2-sever/uuid"
 	"github.com/tientruongcao51/oauth2-sever/models"
 	"github.com/tientruongcao51/oauth2-sever/service_impl"
-	"github.com/tientruongcao51/oauth2-sever/util"
 	"github.com/tientruongcao51/oauth2-sever/util/password"
+	"github.com/tientruongcao51/oauth2-sever/uuid"
 )
 
 var (
@@ -23,12 +23,14 @@ var (
 
 // ClientExists returns true if client exists
 func (s *Service) ClientExists(clientID string) bool {
+	log.INFO.Println("oauth.ClientExists")
 	_, err := s.FindClientByClientID(clientID)
 	return err == nil
 }
 
 // FindClientByClientID looks up a client by client ID
 func (s *Service) FindClientByClientID(clientID string) (*models.OauthClient, error) {
+	log.INFO.Println("oauth.FindClientByClientID")
 	// Client IDs are case insensitive
 	client, err := service_impl.ClientServiceIns.Get(clientID)
 
@@ -52,6 +54,7 @@ func (s *Service) CreateClientTx(clientID, secret, redirectURI string) (*models.
 
 // AuthClient authenticates client
 func (s *Service) AuthClient(clientID, secret string) (*models.OauthClient, error) {
+	log.INFO.Println("oauth.AuthClient")
 	// Fetch the client
 	client, err := s.FindClientByClientID(clientID)
 	if err != nil {
@@ -67,6 +70,7 @@ func (s *Service) AuthClient(clientID, secret string) (*models.OauthClient, erro
 }
 
 func (s *Service) createClientCommon(clientID, secret, redirectURI string) (*models.OauthClient, error) {
+	log.INFO.Println("oauth.createClientCommon")
 	// Check client ID
 	if s.ClientExists(clientID) {
 		return nil, ErrClientIDTaken
@@ -85,7 +89,7 @@ func (s *Service) createClientCommon(clientID, secret, redirectURI string) (*mod
 		},
 		Key:         strings.ToLower(clientID),
 		Secret:      string(secretHash),
-		RedirectURI: util.StringOrNull(redirectURI),
+		RedirectURI: redirectURI,
 	}
 	err = service_impl.ClientServiceIns.Put(client.Key, *client)
 	if err != nil {

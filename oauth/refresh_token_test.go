@@ -3,10 +3,10 @@ package oauth_test
 import (
 	"time"
 
-	"github.com/tientruongcao51/oauth2-sever/uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/tientruongcao51/oauth2-sever/models"
 	"github.com/tientruongcao51/oauth2-sever/oauth"
+	"github.com/tientruongcao51/oauth2-sever/uuid"
 )
 
 func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenCreatesNew() {
@@ -28,7 +28,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenCreatesNew() {
 	// Error should be nil
 	if assert.Nil(suite.T(), err) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)*/
 
 		// There should be just one token now
 		assert.Equal(suite.T(), 1, len(tokens))
@@ -57,7 +57,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenCreatesNew() {
 	// Error should be nil
 	if assert.Nil(suite.T(), err) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)*/
 
 		// There should be just one token now
 		assert.Equal(suite.T(), 1, len(tokens))
@@ -87,7 +87,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenCreatesNew() {
 	// Error should be nil
 	if assert.Nil(suite.T(), err) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)*/
 
 		// There should be 2 tokens
 		assert.Equal(suite.T(), 2, len(tokens))
@@ -115,7 +115,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenCreatesNew() {
 	// Error should be nil
 	if assert.Nil(suite.T(), err) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)*/
 
 		// There should be 2 tokens
 		assert.Equal(suite.T(), 2, len(tokens))
@@ -166,7 +166,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenReturnsExisting() {
 	// Correct refresh token should be returned
 	if assert.NotNil(suite.T(), refreshToken) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)*/
 
 		// There should be just one token right now
 		assert.Equal(suite.T(), 1, len(tokens))
@@ -213,7 +213,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenReturnsExisting() {
 	// Correct refresh token should be returned
 	if assert.NotNil(suite.T(), refreshToken) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db).Order("created_at").Find(&tokens)*/
 
 		// There should be 2 tokens now
 		assert.Equal(suite.T(), 2, len(tokens))
@@ -265,7 +265,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenDeletesExpired() {
 	// Error should be nil
 	if assert.Nil(suite.T(), err) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db.Unscoped()).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db.Unscoped()).Order("created_at").Find(&tokens)*/
 
 		// There should be just one token right now
 		assert.Equal(suite.T(), 1, len(tokens))
@@ -309,7 +309,7 @@ func (suite *OauthTestSuite) TestGetOrCreateRefreshTokenDeletesExpired() {
 	// Error should be nil
 	if assert.Nil(suite.T(), err) {
 		// Fetch all refresh tokens
-		models.OauthRefreshTokenPreload(suite.db.Unscoped()).Order("created_at").Find(&tokens)
+		/*models.OauthRefreshTokenPreload(suite.db.Unscoped()).Order("created_at").Find(&tokens)*/
 
 		// There should be 2 tokens now
 		assert.Equal(suite.T(), 2, len(tokens))
