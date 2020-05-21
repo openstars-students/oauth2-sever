@@ -43,10 +43,10 @@ func (s *Service) UserExists(username string) bool {
 // FindUserByUsername looks up a user by username
 func (s *Service) FindUserByUsername(username string) (*models.OauthUser, error) {
 	// Usernames are case insensitive
-	user, err := service_impl.UserServiceIns.Get("user", username)
+	user, err := service_impl.UserServiceIns.GetByUsername(username)
 
 	// Not found
-	if err == nil {
+	if err != nil {
 		return nil, ErrUserNotFound
 	}
 
@@ -139,8 +139,8 @@ func (s *Service) createUserCommon(roleID, username, password string) (*models.O
 	}
 
 	// Create the user
-	id, err := service_impl.UserServiceIns.Put("", username, *user)
-	if err == nil {
+	id, err := service_impl.UserServiceIns.Put(username, *user)
+	if err != nil {
 		return nil, err
 	} else {
 		fmt.Println(id)
@@ -164,7 +164,7 @@ func (s *Service) setPasswordCommon(user *models.OauthUser, password string) err
 	}
 	user_result.Password = util.StringOrNull(string(passwordHash))
 	user_result.MyGormModel = models.MyGormModel{UpdatedAt: time.Now().UTC()}
-	_, err = service_impl.UserServiceIns.Put("user", user_result.Username, *user_result)
+	_, err = service_impl.UserServiceIns.Put(user_result.Username, *user_result)
 	// Set the password on the user object
 	if err != nil {
 		return err
@@ -176,7 +176,7 @@ func (s *Service) updateUsernameCommon(user *models.OauthUser, username string) 
 	if username == "" {
 		return ErrCannotSetEmptyUsername
 	}
-	_, err := service_impl.UserServiceIns.Put("user", user.Username, *user)
+	_, err := service_impl.UserServiceIns.Put(user.Username, *user)
 	if err != nil {
 		return err
 	}

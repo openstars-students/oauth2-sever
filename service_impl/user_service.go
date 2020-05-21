@@ -6,8 +6,8 @@ import (
 )
 
 type UserService interface {
-	Put(bsKey string, itemKey string, user models.OauthUser) (id string, err error)
-	Get(bs string, keyItem string) (user models.OauthUser, err error)
+	Put(username string, user models.OauthUser) (id string, err error)
+	GetByUsername(username string) (user models.OauthUser, err error)
 }
 
 var UserServiceIns UserService

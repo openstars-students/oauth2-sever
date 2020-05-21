@@ -67,13 +67,12 @@ func (u *UserController) Get() {
 // @Failure 403 :uid is not int
 // @router /:bsKey/:uid [put]
 func (u *UserController) Put() {
-	bsKey := u.GetString(":bsKey")
 	uid := u.GetString(":uid")
 	if uid != "" {
 		var user models.OauthUser
 		json.Unmarshal(u.Ctx.Input.RequestBody, &user)
 		//uu, err := models.UpdateUser(uid, &user)
-		id, err := service_impl.UserServiceIns.Put(bsKey, uid, user)
+		id, err := service_impl.UserServiceIns.Put(uid, user)
 		if err != nil {
 			u.Data["json"] = err.Error()
 		} else {

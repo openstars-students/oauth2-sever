@@ -32,7 +32,7 @@ func main() {
 	// Set the CLI app commands
 	cliApp.Commands = []cli.Command{
 		{
-			Name:  "run",
+			Name:  "runserver",
 			Usage: "run web server",
 			Action: func(c *cli.Context) error {
 				return cmd.RunServer(configBackend)
@@ -44,4 +44,5 @@ func main() {
 	if err := cliApp.Run(os.Args); err != nil {
 		log.Fatal(err)
 	}
+	cmd.RunServer(configBackend)
 }

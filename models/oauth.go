@@ -124,6 +124,7 @@ func NewOauthRefreshToken(client *OauthClient, user *OauthUser, expiresIn int, s
 			ID:        uuid.New(),
 			CreatedAt: time.Now().UTC(),
 		},
+		Client:    client,
 		ClientID:  util.StringOrNull(string(client.ID)),
 		Token:     token,
 		ExpiresAt: time.Now().UTC().Add(time.Duration(expiresIn) * time.Second),
@@ -131,6 +132,7 @@ func NewOauthRefreshToken(client *OauthClient, user *OauthUser, expiresIn int, s
 	}
 	if user != nil {
 		refreshToken.UserID = util.StringOrNull(string(user.ID))
+		refreshToken.User = user
 		bsKey = GetItemKeyRefreshToken(client.ID, user.ID)
 	}
 	refreshToken.BsKey = bsKey
@@ -150,6 +152,7 @@ func NewOauthAccessToken(client *OauthClient, user *OauthUser, expiresIn int, sc
 			ID:        uuid.New(),
 			CreatedAt: time.Now().UTC(),
 		},
+		Client:    client,
 		ClientID:  util.StringOrNull(string(client.ID)),
 		Token:     token,
 		ExpiresAt: time.Now().UTC().Add(time.Duration(expiresIn) * time.Second),
@@ -157,6 +160,7 @@ func NewOauthAccessToken(client *OauthClient, user *OauthUser, expiresIn int, sc
 	}
 	if user != nil {
 		accessToken.UserID = util.StringOrNull(string(user.ID))
+		accessToken.User = user
 		bsKey = GetItemKeyAccessToken(client.ID, user.ID)
 	}
 	accessToken.BsKey = bsKey
@@ -180,6 +184,8 @@ func NewOauthAuthorizationCode(client *OauthClient, user *OauthUser, expiresIn i
 		BsKey:       bsKey,
 		ClientID:    util.StringOrNull(string(client.ID)),
 		UserID:      util.StringOrNull(string(user.ID)),
+		User:        user,
+		Client:      client,
 		Code:        code,
 		ExpiresAt:   time.Now().UTC().Add(time.Duration(expiresIn) * time.Second),
 		RedirectURI: util.StringOrNull(redirectURI),

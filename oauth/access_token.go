@@ -23,7 +23,7 @@ func (s *Service) GrantAccessToken(client *models.OauthClient, user *models.Oaut
 
 	// Create a new access token
 	accessToken = models.NewOauthAccessToken(client, user, expiresIn, scope)
-	err = service_impl.AccessTokenServiceIns.Put(bsKey, *accessToken)
+	err = service_impl.AccessTokenServiceIns.PutAccessToken(bsKey, *accessToken)
 	if err != nil {
 		return nil, err
 	}

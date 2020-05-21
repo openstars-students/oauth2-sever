@@ -14,7 +14,7 @@ func NewAccessTokenService() AccessTokenService {
 	return &AccessTokenServiceImp{}
 }
 
-func (s *AccessTokenServiceImp) Put(itemKey string, accessToken models.OauthAccessToken) (err error) {
+func (s *AccessTokenServiceImp) PutAccessToken(itemKey string, accessToken models.OauthAccessToken) (err error) {
 	bskey := generic.TStringKey("access_token")
 	json_app, _ := json.Marshal(accessToken)
 	item := &generic.TItem{
@@ -68,7 +68,6 @@ func (s *AccessTokenServiceImp) GetByToken(accessTokenCode string) (client *mode
 	fmt.Println(result)
 	return client, nil
 }
-
 
 func (s *AccessTokenServiceImp) Delete(accessTokenCode string, itemKeyClientUser string) (err error) {
 	bskey := generic.TStringKey("")

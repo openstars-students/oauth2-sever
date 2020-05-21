@@ -44,7 +44,8 @@ func RunServer(configBackend string) error {
 	app.UseHandler(router)
 
 	// Run the server on port 8080, gracefully stop on SIGTERM signal
-	graceful.Run(":8080", 5*time.Second, app)
+	graceful.Run(":8082", 5*time.Second, app)
 
+	println("runned server")
 	return nil
 }

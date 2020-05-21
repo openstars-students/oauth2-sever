@@ -31,7 +31,7 @@ func (s *Service) register(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	println("email input" + r.Form.Get("email"))
+	println("email input " + r.Form.Get("email"))
 	// Check that the submitted email hasn't been registered already
 	if s.oauthService.UserExists(r.Form.Get("email")) {
 		sessionService.SetFlashMessage("Email taken")
