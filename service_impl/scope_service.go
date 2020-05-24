@@ -6,8 +6,9 @@ import (
 )
 
 type ScopeService interface {
-	Put(username string, user models.OauthScope) (id string, err error)
-	GetByScopename(username string) (user models.OauthScope, err error)
+	PutScope(isDefault bool, scope models.OauthScope) (Scopename string, err error)
+	GetDefaultScope(scopename string) (scope models.OauthScope, err error)
+	GetScope(scopename string) (scope models.OauthScope, err error)
 }
 
 var ScopeServiceIns ScopeService

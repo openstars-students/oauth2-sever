@@ -17,42 +17,38 @@ func RoleNewService() RoleService {
 	return &RoleServiceImp{}
 }
 
-func (s *RoleServiceImp) Put(username string, user models.OauthRole) (Rolename string, err error) {
-	/*bskey := generic.TStringKey("user")
-	if user.Rolename == "" {
-		return "", errors.New("Rolename is nil")
+func (s *RoleServiceImp) FindRoleByID(id string) (role models.OauthRole, err error) {
+	bskey := generic.TStringKey("oauth_roles")
+	itemkey := generic.TItemKey(id)
+	if id == "" {
+		return role, errors.New("Errors in Get Role by Id from BS")
 	}
-	json_app, _ := json.Marshal(user)
+	result, _ := svClient.BsGetItem(bskey, itemkey)
+	if result != nil {
+		err = json.Unmarshal(result.Value, &role)
+	}
+	if err != nil {
+		return role, errors.New("Errors in Get Role from BS")
+	}
+	log.INFO.Println("role info :")
+	log.INFO.Println(role)
+	return role, nil
+
+}
+
+func (s *RoleServiceImp) PutRole(role models.OauthRole) (roleId string, err error) {
+	bskey := generic.TStringKey("oauth_roles")
+	if role.ID == "" {
+		return "", errors.New("Role Id is nil")
+	}
+	json_app, _ := json.Marshal(role)
 	item := &generic.TItem{
-		Key:   []byte(username),
+		Key:   []byte(role.ID),
 		Value: json_app,
 	}
 	err = svClient.BsPutItem(bskey, item)
 	if err == nil {
-		return user.Rolename, nil
-	}*/
+		return role.ID, nil
+	}
 	return "", errors.New("Role Not Exist")
 }
-
-func (s *RoleServiceImp) GetDefault(username string) (user models.OauthRole, err error) {
-	bskey := generic.TStringKey("user")
-	itemkey := generic.TItemKey(username)
-	if username == "" {
-		return user, errors.New("Errors in Get Role from BS")
-	}
-	result, _ := svClient.BsGetItem(bskey, itemkey)
-	if result != nil {
-		err = json.Unmarshal(result.Value, &user)
-	}
-	if err != nil {
-		return user, errors.New("Errors in Get Role from BS")
-	}
-	log.INFO.Println("user info :")
-	log.INFO.Println(user)
-	return user, nil
-}
-
-//func main() {
-//	AddApp()
-//	GetApp()
-//}

@@ -33,6 +33,7 @@ func (s *Service) GetDefaultScope() string {
 	// Fetch default scopes
 	var scopes []string
 	//s.db.Model(new(models.OauthScope)).Where("is_default = ?", true).Pluck("scope", &scopes)
+	//setup by truong
 	scopes = append(scopes, "read")
 	// Sort the scopes alphabetically
 	sort.Strings(scopes)
@@ -44,13 +45,20 @@ func (s *Service) GetDefaultScope() string {
 // ScopeExists checks if a scope exists
 func (s *Service) ScopeExists(requestedScope string) bool {
 	// Split the requested scope string
-	//scopes := strings.Split(requestedScope, " ")
-	//
-	//// Count how many of requested scopes exist in the database
-	//var count int
-	//s.db.Model(new(models.OauthScope)).Where("scope in (?)", scopes).Count(&count)
-	//
-	//// Return true only if all requested scopes found
-	//return count == len(scopes)
+	scopes := strings.Split(requestedScope, " ")
+
+	/*// Count how many of requested scopes exist in the database
+	var count int
+	s.db.Model(new(models.OauthScope)).Where("scope in (?)", scopes).Count(&count)
+
+	// Return true only if all requested scopes found
+	return count == len(scopes)*/
+	for _, scope := range scopes {
+		if scope == "read" || scope == "read_write" {
+			continue
+		} else {
+			return false
+		}
+	}
 	return true
 }

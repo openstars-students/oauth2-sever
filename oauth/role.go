@@ -2,8 +2,8 @@ package oauth
 
 import (
 	"errors"
-
 	"github.com/tientruongcao51/oauth2-sever/models"
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
 )
 
 var (
@@ -13,9 +13,9 @@ var (
 
 // FindRoleByID looks up a role by ID and returns it
 func (s *Service) FindRoleByID(id string) (*models.OauthRole, error) {
-	role := new(models.OauthRole)
-	if s.db.Where("id = ?", id).First(role).RecordNotFound() {
+	role, err := service_impl.RoleServiceIns.FindRoleByID(id)
+	if err != nil {
 		return nil, ErrRoleNotFound
 	}
-	return role, nil
+	return &role, nil
 }

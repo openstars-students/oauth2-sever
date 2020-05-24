@@ -6,8 +6,8 @@ import (
 )
 
 type RoleService interface {
-	Put(username string, user models.OauthRole) (id string, err error)
-	GetDefault(username string) (user models.OauthRole, err error)
+	PutRole(role models.OauthRole) (roleId string, err error)
+	FindRoleByID(id string) (role models.OauthRole, err error)
 }
 
 var RoleServiceIns RoleService
