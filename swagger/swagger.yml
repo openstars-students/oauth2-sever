@@ -103,16 +103,6 @@ paths:
         "403":
           description: body is empty
   /user/:
-    get:
-      tags:
-      - user
-      description: get all Users
-      operationId: UserController.GetAll
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.User'
     post:
       tags:
       - user
@@ -124,7 +114,7 @@ paths:
         description: body for user content
         required: true
         schema:
-          $ref: '#/definitions/models.User'
+          $ref: '#/definitions/controllers.userDto'
       responses:
         "200":
           description: '{int} models.User.Id'
@@ -138,20 +128,15 @@ paths:
       operationId: UserController.Get
       parameters:
       - in: path
-        name: bsKey
-        description: The bsKey for staticblock
-        required: true
-        type: string
-      - in: path
-        name: uid
-        description: The key for staticblock
+        name: username
+        description: Get by Username
         required: true
         type: string
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.User'
+            $ref: '#/definitions/models.OauthUser'
         "403":
           description: :uid is empty
     put:
@@ -161,13 +146,8 @@ paths:
       operationId: UserController.Update
       parameters:
       - in: path
-        name: bsKey
-        description: The bsKey you want to update
-        required: true
-        type: string
-      - in: path
-        name: uid
-        description: The uid you want to update
+        name: username
+        description: The username you want to update
         required: true
         type: string
       - in: body
@@ -175,7 +155,7 @@ paths:
         description: body for user content
         required: true
         schema:
-          $ref: '#/definitions/models.User'
+          $ref: '#/definitions/controllers.userDto'
       responses:
         "200":
           description: ""
@@ -183,54 +163,6 @@ paths:
             $ref: '#/definitions/models.User'
         "403":
           description: :uid is not int
-  /user/{uid}:
-    delete:
-      tags:
-      - user
-      description: delete the user
-      operationId: UserController.Delete
-      parameters:
-      - in: path
-        name: uid
-        description: The uid you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: uid is empty
-  /user/login:
-    get:
-      tags:
-      - user
-      description: Logs user into the system
-      operationId: UserController.Login
-      parameters:
-      - in: query
-        name: username
-        description: The username for login
-        required: true
-        type: string
-      - in: query
-        name: password
-        description: The password for login
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} login success'
-        "403":
-          description: user not exist
-  /user/logout:
-    get:
-      tags:
-      - user
-      description: Logs out current logged in user session
-      operationId: UserController.logout
-      responses:
-        "200":
-          description: '{string} logout success'
 definitions:
   controllers.ClientDto:
     title: ClientDto
@@ -242,6 +174,9 @@ definitions:
         type: string
       Secret:
         type: string
+  controllers.userDto:
+    title: userDto
+    type: object
   models.Application:
     title: Application
     type: object
@@ -260,44 +195,82 @@ definitions:
         type: string
       ImageURL:
         type: string
-  models.Object:
-    title: Object
+  models.MyGormModel:
+    title: MyGormModel
     type: object
     properties:
-      ObjectId:
+      CreatedAt:
         type: string
-      PlayerName:
+        format: datetime
+      DeletedAt:
         type: string
-      Score:
-        type: integer
-        format: int64
-  models.Profile:
-    title: Profile
+        format: datetime
+      ID:
+        type: string
+      UpdatedAt:
+        type: string
+        format: datetime
+  models.OauthRole:
+    title: OauthRole
     type: object
     properties:
-      Address:
+      CreatedAt:
         type: string
-      Age:
-        type: integer
-        format: int64
-      Email:
+        format: datetime
+      DeletedAt:
         type: string
-      Gender:
+        format: datetime
+      ID:
         type: string
+      Name:
+        type: string
+      UpdatedAt:
+        type: string
+        format: datetime
+  models.OauthUser:
+    title: OauthUser
+    type: object
+    properties:
+      CreatedAt:
+        type: string
+        format: datetime
+      DeletedAt:
+        type: string
+        format: datetime
+      ID:
+        type: string
+      Password:
+        $ref: '#/definitions/sql.NullString'
+      Role:
+        $ref: '#/definitions/models.OauthRole'
+      RoleID:
+        $ref: '#/definitions/sql.NullString'
+      UpdatedAt:
+        type: string
+        format: datetime
+      Username:
+        type: string
+  models.TimestampModel:
+    title: TimestampModel
+    type: object
+    properties:
+      CreatedAt:
+        type: string
+        format: datetime
+      DeletedAt:
+        type: string
+        format: datetime
+      UpdatedAt:
+        type: string
+        format: datetime
   models.User:
     title: User
     type: object
-    properties:
-      Id:
-        type: string
-      Password:
-        type: string
-      Profile:
-        $ref: '#/definitions/models.Profile'
-      Username:
-        type: string
   path:
     title: path
+    type: object
+  sql.NullString:
+    title: NullString
     type: object
 tags:
 - name: client

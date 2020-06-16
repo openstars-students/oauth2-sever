@@ -2,7 +2,10 @@ package controllers
 
 import (
 	"encoding/json"
-	"github.com/tientruongcao51/oauth2-sever/models"
+	"fmt"
+	"github.com/tientruongcao51/oauth2-sever/config"
+	"github.com/tientruongcao51/oauth2-sever/log"
+	"github.com/tientruongcao51/oauth2-sever/oauth"
 
 	"github.com/astaxie/beego"
 	"github.com/tientruongcao51/oauth2-sever/service_impl"
@@ -13,42 +16,47 @@ type UserController struct {
 	beego.Controller
 }
 
+type UserDto struct {
+	roleId   string
+	username string
+	password string
+}
+
 // @Title CreateUser
 // @Description create users
-// @Param	body		body 	models.User	true		"body for user content"
+// @Param	body		body 	controllers.userDto	true		"body for user content"
 // @Success 200 {int} models.User.Id
 // @Failure 403 body is empty
 // @router / [post]
 func (u *UserController) Post() {
-	var user models.User
-	json.Unmarshal(u.Ctx.Input.RequestBody, &user)
-	uid := models.AddUser(user)
-	u.Data["json"] = map[string]string{"uid": uid}
-	u.ServeJSON()
-}
-
-// @Title GetAll
-// @Description get all Users
-// @Success 200 {object} models.User
-// @router / [get]
-func (u *UserController) GetAll() {
-	users := models.GetAllUsers()
-	u.Data["json"] = users
+	var userDto UserDto
+	json.Unmarshal(u.Ctx.Input.RequestBody, &userDto)
+	roleId := userDto.roleId
+	username := userDto.username
+	password := userDto.password
+	cnf := config.NewConfig(false, false, "etcd")
+	service := oauth.NewService(cnf)
+	fmt.Print(userDto)
+	user, err := service.CreateUser(roleId, username, password)
+	log.INFO.Println(err)
+	log.INFO.Println("User:")
+	log.INFO.Println(user)
+	if user != nil {
+		u.Data["json"] = map[string]string{"uid": user.Username}
+	}
 	u.ServeJSON()
 }
 
 // @Title Get
 // @Description get user by uid
-// @Param	bsKey		path 	string	true		"The bsKey for staticblock"
-// @Param	uid		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.User
+// @Param	username			path 	string	true		"Get by Username"
+// @Success 200 {object}  models.OauthUser
 // @Failure 403 :uid is empty
 // @router /:bsKey/:uid [get]
 func (u *UserController) Get() {
-	bsKey := u.GetString(":bsKey")
-	uid := u.GetString(":uid")
-	if uid != "" {
-		user, err := service_impl.UserServiceIns.Get(bsKey, uid)
+	username := u.GetString(":username")
+	if username != "" {
+		user, err := service_impl.UserServiceIns.GetByUsername(username)
 		if err != nil {
 			u.Data["json"] = err.Error()
 		} else {
@@ -60,29 +68,33 @@ func (u *UserController) Get() {
 
 // @Title Update
 // @Description update the user
-// @Param	bsKey		path 	string	true		"The bsKey you want to update"
-// @Param	uid		path 	string	true		"The uid you want to update"
-// @Param	body		body 	models.User	true		"body for user content"
+// @Param	username			path 	string	true					"The username you want to update"
+// @Param	body		body 	controllers.userDto		true				"body for user content"
 // @Success 200 {object} models.User
 // @Failure 403 :uid is not int
 // @router /:bsKey/:uid [put]
 func (u *UserController) Put() {
-	uid := u.GetString(":uid")
-	if uid != "" {
-		var user models.OauthUser
-		json.Unmarshal(u.Ctx.Input.RequestBody, &user)
-		//uu, err := models.UpdateUser(uid, &user)
-		id, err := service_impl.UserServiceIns.Put(uid, user)
-		if err != nil {
-			u.Data["json"] = err.Error()
-		} else {
-			u.Data["json"] = id
-		}
+	var userDto UserDto
+	json.Unmarshal(u.Ctx.Input.RequestBody, &userDto)
+	username := u.GetString(":username")
+	roleId := userDto.roleId
+	password := userDto.password
+	cnf := config.NewConfig(false, false, "etcd")
+	service := oauth.NewService(cnf)
+	fmt.Println(userDto)
+	user, err := service.UpdateUser(roleId, username, password)
+	log.INFO.Println(err)
+	log.INFO.Println("User:")
+	log.INFO.Println(user)
+	if err != nil {
+		u.Data["json"] = err.Error()
+	} else {
+		u.Data["json"] = user.Username
 	}
 	u.ServeJSON()
 }
 
-// @Title Delete
+/*// @Title Delete
 // @Description delete the user
 // @Param	uid		path 	string	true		"The uid you want to delete"
 // @Success 200 {string} delete success!
@@ -93,31 +105,4 @@ func (u *UserController) Delete() {
 	models.DeleteUser(uid)
 	u.Data["json"] = "delete success!"
 	u.ServeJSON()
-}
-
-// @Title Login
-// @Description Logs user into the system
-// @Param	username		query 	string	true		"The username for login"
-// @Param	password		query 	string	true		"The password for login"
-// @Success 200 {string} login success
-// @Failure 403 user not exist
-// @router /login [get]
-func (u *UserController) Login() {
-	username := u.GetString("username")
-	password := u.GetString("password")
-	if models.Login(username, password) {
-		u.Data["json"] = "login success"
-	} else {
-		u.Data["json"] = "user not exist"
-	}
-	u.ServeJSON()
-}
-
-// @Title logout
-// @Description Logs out current logged in user session
-// @Success 200 {string} logout success
-// @router /logout [get]
-func (u *UserController) Logout() {
-	u.Data["json"] = "logout success"
-	u.ServeJSON()
-}
+}*/

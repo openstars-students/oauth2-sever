@@ -75,7 +75,7 @@ func (suite *OauthTestSuite) TestGrantAccessToken() {
 }
 
 func (suite *OauthTestSuite) TestGrantAccessTokenDeletesExpiredTokens() {
-	/*var (
+	var (
 		testAccessTokens = []*models.OauthAccessToken{
 			// Expired access token with a user
 			{
@@ -180,5 +180,5 @@ func (suite *OauthTestSuite) TestGrantAccessTokenDeletesExpiredTokens() {
 		notFound := suite.db.Unscoped().Where("token = ?", token).
 			First(new(models.OauthAccessToken)).RecordNotFound()
 		assert.False(suite.T(), notFound)
-	}*/
+	}
 }

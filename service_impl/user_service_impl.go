@@ -34,18 +34,18 @@ func (s *UserServiceImp) Put(username string, user models.OauthUser) (Username s
 	return "", errors.New("User Not Exist")
 }
 
-func (s *UserServiceImp) GetByUsername(username string) (user models.OauthUser, err error) {
+func (s *UserServiceImp) GetByUsername(username string) (user *models.OauthUser, err error) {
 	bskey := generic.TStringKey("user")
 	itemkey := generic.TItemKey(username)
 	if username == "" {
 		return user, errors.New("Errors in Get User from BS")
 	}
-	result, _ := svClient.BsGetItem(bskey, itemkey)
+	result, err := svClient.BsGetItem(bskey, itemkey)
 	if result != nil {
 		err = json.Unmarshal(result.Value, &user)
 	}
 	if err != nil {
-		return user, errors.New("Errors in Get User from BS")
+		return nil, errors.New("Errors in Get User from BS")
 	}
 	log.INFO.Println("user info :")
 	log.INFO.Println(user)

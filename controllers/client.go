@@ -6,6 +6,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/tientruongcao51/oauth2-sever/config"
 	"github.com/tientruongcao51/oauth2-sever/log"
+	"github.com/tientruongcao51/oauth2-sever/models"
 	"github.com/tientruongcao51/oauth2-sever/oauth"
 	"github.com/tientruongcao51/oauth2-sever/service_impl"
 )
@@ -61,9 +62,9 @@ func (u *ClientController) Get() {
 	log.INFO.Println(err)
 	log.INFO.Println("Client:")
 	log.INFO.Println(client)
-	//if client != nil {
-	//	u.Data["json"] = client
-	//	u.Data["json"] = map[string]models.OauthClient{"client": client}
-	//}
+	if client != nil {
+		u.Data["json"] = client
+		u.Data["json"] = map[string]models.OauthClient{"client": *client}
+	}
 	u.ServeJSON()
 }

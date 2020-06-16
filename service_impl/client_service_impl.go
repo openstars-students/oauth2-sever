@@ -67,8 +67,3 @@ func (s *ClientServiceImp) Get(clientID string) (client *models.OauthClient, err
 	log.INFO.Println(client)
 	return client, nil
 }
-
-//func main() {
-//	AddApp()
-//	GetApp()
-//}

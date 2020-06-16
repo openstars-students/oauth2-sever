@@ -14,17 +14,6 @@ type AuthController struct {
 	beego.Controller
 }
 
-/*
-https://OAUTH_SERVER.DOMAIN/oauth/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=CALLBACK_URL&scope=read
-
-https://authorization-server.com/auth
-?response_type=code
-&client_id=29352915982374239857
-&redirect_uri=https%3A%2F%2Fexample-app.com%2Fcallback
-&scope=create+delete
-&state=xcoiv98y2kd22vusuye3kch
-*/
-
 // @Title auth token
 // @Description create users
 // @Param	response_type		body 	path 	string		true		"The key for staticblock"

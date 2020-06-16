@@ -7,7 +7,7 @@ import (
 	"github.com/astaxie/beego"
 )
 
-func main_() {
+func main() {
 	beego.BConfig.WebConfig.AutoRender = true
 	beego.BConfig.WebConfig.DirectoryIndex = true
 	beego.BConfig.WebConfig.StaticDir["/v1/swagger"] = "swagger"

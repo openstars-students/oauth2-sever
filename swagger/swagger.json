@@ -152,21 +152,6 @@
             }
         },
         "/user/": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "description": "get all Users",
-                "operationId": "UserController.GetAll",
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.User"
-                        }
-                    }
-                }
-            },
             "post": {
                 "tags": [
                     "user"
@@ -180,7 +165,7 @@
                         "description": "body for user content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.User"
+                            "$ref": "#/definitions/controllers.userDto"
                         }
                     }
                 ],
@@ -190,53 +175,6 @@
                     },
                     "403": {
                         "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/user/login": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "description": "Logs user into the system",
-                "operationId": "UserController.Login",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "username",
-                        "description": "The username for login",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "password",
-                        "description": "The password for login",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} login success"
-                    },
-                    "403": {
-                        "description": "user not exist"
-                    }
-                }
-            }
-        },
-        "/user/logout": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "description": "Logs out current logged in user session",
-                "operationId": "UserController.logout",
-                "responses": {
-                    "200": {
-                        "description": "{string} logout success"
                     }
                 }
             }
@@ -251,15 +189,8 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "bsKey",
-                        "description": "The bsKey for staticblock",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "uid",
-                        "description": "The key for staticblock",
+                        "name": "username",
+                        "description": "Get by Username",
                         "required": true,
                         "type": "string"
                     }
@@ -268,7 +199,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.User"
+                            "$ref": "#/definitions/models.OauthUser"
                         }
                     },
                     "403": {
@@ -285,15 +216,8 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "bsKey",
-                        "description": "The bsKey you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "uid",
-                        "description": "The uid you want to update",
+                        "name": "username",
+                        "description": "The username you want to update",
                         "required": true,
                         "type": "string"
                     },
@@ -303,7 +227,7 @@
                         "description": "body for user content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.User"
+                            "$ref": "#/definitions/controllers.userDto"
                         }
                     }
                 ],
@@ -316,32 +240,6 @@
                     },
                     "403": {
                         "description": ":uid is not int"
-                    }
-                }
-            }
-        },
-        "/user/{uid}": {
-            "delete": {
-                "tags": [
-                    "user"
-                ],
-                "description": "delete the user",
-                "operationId": "UserController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uid",
-                        "description": "The uid you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "uid is empty"
                     }
                 }
             }
@@ -362,6 +260,10 @@
                     "type": "string"
                 }
             }
+        },
+        "controllers.userDto": {
+            "title": "userDto",
+            "type": "object"
         },
         "models.Application": {
             "title": "Application",
@@ -390,61 +292,112 @@
                 }
             }
         },
-        "models.Object": {
-            "title": "Object",
+        "models.MyGormModel": {
+            "title": "MyGormModel",
             "type": "object",
             "properties": {
-                "ObjectId": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "ID": {
                     "type": "string"
                 },
-                "PlayerName": {
-                    "type": "string"
-                },
-                "Score": {
-                    "type": "integer",
-                    "format": "int64"
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "datetime"
                 }
             }
         },
-        "models.Profile": {
-            "title": "Profile",
+        "models.OauthRole": {
+            "title": "OauthRole",
             "type": "object",
             "properties": {
-                "Address": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "ID": {
                     "type": "string"
                 },
-                "Age": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Email": {
+                "Name": {
                     "type": "string"
                 },
-                "Gender": {
-                    "type": "string"
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "datetime"
                 }
             }
         },
-        "models.User": {
-            "title": "User",
+        "models.OauthUser": {
+            "title": "OauthUser",
             "type": "object",
             "properties": {
-                "Id": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "ID": {
                     "type": "string"
                 },
                 "Password": {
-                    "type": "string"
+                    "$ref": "#/definitions/sql.NullString"
                 },
-                "Profile": {
-                    "$ref": "#/definitions/models.Profile"
+                "Role": {
+                    "$ref": "#/definitions/models.OauthRole"
+                },
+                "RoleID": {
+                    "$ref": "#/definitions/sql.NullString"
+                },
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Username": {
                     "type": "string"
                 }
             }
         },
+        "models.TimestampModel": {
+            "title": "TimestampModel",
+            "type": "object",
+            "properties": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                }
+            }
+        },
+        "models.User": {
+            "title": "User",
+            "type": "object"
+        },
         "path": {
             "title": "path",
+            "type": "object"
+        },
+        "sql.NullString": {
+            "title": "NullString",
             "type": "object"
         }
     },

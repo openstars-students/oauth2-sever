@@ -70,17 +70,17 @@ func (s *AccessTokenServiceImp) GetByToken(accessTokenCode string) (client *mode
 }
 
 func (s *AccessTokenServiceImp) Delete(accessTokenCode string, itemKeyClientUser string) (err error) {
-	bskey := generic.TStringKey("")
+	bsKey := generic.TStringKey("")
 	keyString := ""
 	if accessTokenCode != "" {
-		bskey = generic.TStringKey("access_token_key")
+		bsKey = generic.TStringKey("access_token_key")
 		keyString = accessTokenCode
 	} else if itemKeyClientUser != "" {
-		bskey = generic.TStringKey("access_token")
+		bsKey = generic.TStringKey("access_token")
 		keyString = itemKeyClientUser
 	}
 	itemkey := generic.TItemKey(keyString)
-	result, err := svClient.BsGetItem(bskey, itemkey)
+	result, err := svClient.BsGetItem(bsKey, itemkey)
 	if err != nil {
 		return err
 	}

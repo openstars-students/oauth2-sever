@@ -11,9 +11,9 @@ import (
 // OauthClient ...
 type OauthClient struct {
 	MyGormModel
-	Key         string `sql:"type:varchar(254);unique;not null"`
-	Secret      string `sql:"type:varchar(60);not null"`
-	RedirectURI string `sql:"type:varchar(200)"`
+	Key         string //unique;not null
+	Secret      string //not null
+	RedirectURI string
 }
 
 // TableName specifies table name
@@ -24,9 +24,9 @@ func (c *OauthClient) TableName() string {
 // OauthScope ...
 type OauthScope struct {
 	MyGormModel
-	Scope       string `sql:"type:varchar(200);unique;not null"`
+	Scope       string //unique;not null
 	Description sql.NullString
-	IsDefault   bool `sql:"default:false"`
+	IsDefault   bool //default:false
 }
 
 // TableName specifies table name
@@ -37,8 +37,8 @@ func (s *OauthScope) TableName() string {
 // OauthRole is a one of roles user can have (currently superuser or user)
 type OauthRole struct {
 	TimestampModel
-	ID   string `gorm:"primary_key" sql:"type:varchar(20)"`
-	Name string `sql:"type:varchar(50);unique;not null"`
+	ID   string //primary_key
+	Name string // unique;not null
 }
 
 // TableName specifies table name
@@ -49,10 +49,10 @@ func (r *OauthRole) TableName() string {
 // OauthUser ...
 type OauthUser struct {
 	MyGormModel
-	RoleID   sql.NullString `sql:"type:varchar(20);index;not null"`
+	RoleID   sql.NullString //index;not null
 	Role     *OauthRole
-	Username string         `sql:"type:varchar(254);unique;not null"`
-	Password sql.NullString `sql:"type:varchar(60)"`
+	Username string //unique;not null
+	Password sql.NullString
 }
 
 // TableName specifies table name
@@ -64,13 +64,13 @@ func (u *OauthUser) TableName() string {
 type OauthRefreshToken struct {
 	MyGormModel
 	BsKey     string
-	ClientID  sql.NullString `sql:"index;not null"`
-	UserID    sql.NullString `sql:"index"`
+	ClientID  sql.NullString //not null
+	UserID    sql.NullString
 	Client    *OauthClient
 	User      *OauthUser
-	Token     string    `sql:"type:varchar(40);unique;not null"`
-	ExpiresAt time.Time `sql:"not null"`
-	Scope     string    `sql:"type:varchar(200);not null"`
+	Token     string //unique;not null
+	ExpiresAt time.Time
+	Scope     string //not null
 }
 
 // TableName specifies table name
@@ -82,13 +82,13 @@ func (rt *OauthRefreshToken) TableName() string {
 type OauthAccessToken struct {
 	MyGormModel
 	BsKey     string
-	ClientID  sql.NullString `sql:"index;not null"`
-	UserID    sql.NullString `sql:"index"`
+	ClientID  sql.NullString //index;not null
+	UserID    sql.NullString
 	Client    *OauthClient
 	User      *OauthUser
-	Token     string    `sql:"type:varchar(40);unique;not null"`
-	ExpiresAt time.Time `sql:"not null"`
-	Scope     string    `sql:"type:varchar(200);not null"`
+	Token     string //unique;not null
+	ExpiresAt time.Time
+	Scope     string //not null
 }
 
 // TableName specifies table name
@@ -100,14 +100,14 @@ func (at *OauthAccessToken) TableName() string {
 type OauthAuthorizationCode struct {
 	MyGormModel
 	BsKey       string
-	ClientID    sql.NullString `sql:"index;not null"`
-	UserID      sql.NullString `sql:"index;not null"`
+	ClientID    sql.NullString //not null
+	UserID      sql.NullString //not null
 	Client      *OauthClient
 	User        *OauthUser
-	Code        string         `sql:"type:varchar(40);unique;not null"`
-	RedirectURI sql.NullString `sql:"type:varchar(200)"`
-	ExpiresAt   time.Time      `sql:"not null"`
-	Scope       string         `sql:"type:varchar(200);not null"`
+	Code        string //unique;not null
+	RedirectURI sql.NullString
+	ExpiresAt   time.Time
+	Scope       string //not null
 }
 
 // TableName specifies table name

@@ -50,12 +50,17 @@ func (s *Service) FindUserByUsername(username string) (*models.OauthUser, error)
 		return nil, ErrUserNotFound
 	}
 
-	return &user, nil
+	return user, nil
 }
 
 // CreateUser saves a new user to database
 func (s *Service) CreateUser(roleID, username, password string) (*models.OauthUser, error) {
 	return s.createUserCommon(roleID, username, password)
+}
+
+// UpdateUser saves a new user to database
+func (s *Service) UpdateUser(roleID, username, password string) (*models.OauthUser, error) {
+	return s.updateUserCommon(roleID, username, password)
 }
 
 // CreateUserTx saves a new user to database using injected db object
@@ -136,6 +141,33 @@ func (s *Service) createUserCommon(roleID, username, password string) (*models.O
 	// Check the username is available
 	if s.UserExists(user.Username) {
 		return nil, ErrUsernameTaken
+	}
+
+	// Create the user
+	id, err := service_impl.UserServiceIns.Put(username, *user)
+	if err != nil {
+		return nil, err
+	} else {
+		fmt.Println(id)
+	}
+	return user, nil
+}
+
+func (s *Service) updateUserCommon(roleID, username, password string) (*models.OauthUser, error) {
+	// Start with a user without a password
+	user, _ := s.FindUserByUsername(username)
+	user.RoleID = util.StringOrNull(roleID)
+
+	// If the password is being set already, create a bcrypt hash
+	if password != "" {
+		if len(password) < MinPasswordLength {
+			return nil, ErrPasswordTooShort
+		}
+		passwordHash, err := pass.HashPassword(password)
+		if err != nil {
+			return nil, err
+		}
+		user.Password = util.StringOrNull(string(passwordHash))
 	}
 
 	// Create the user
