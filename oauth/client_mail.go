@@ -31,12 +31,12 @@ func (s *Service) GenerateEmailCode(email string) (mtk *models.MailToken, err er
 	return mtk, nil
 }
 
-func (s *Service) CheckEmailCode(email string, code string) bool {
+func (s *Service) CheckEmailCode(email string, code string) (bool, error) {
 	mtk, err := service_impl.MailTokenServiceIns.Get(email)
 	if err != nil {
-		return false
+		return false, err
 	}
-	return code == mtk.Token
+	return code == mtk.Token, nil
 }
 
 func EncodeToString(max int) string {

@@ -46,5 +46,5 @@ type ServiceInterface interface {
 	ClearUserTokens(userSession *session.UserSession)
 	Close()
 	GenerateEmailCode(email string) (mtk *models.MailToken, err error)
-	CheckEmailCode(email string, code string) bool
+	CheckEmailCode(email string, code string) (bool, error)
 }

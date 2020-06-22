@@ -2,53 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d325d7b-64c9-4ac9-b650-35967aa429bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/oauth/client_mail.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_impl/mail_token_impl.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_impl/mail_token_service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/main.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/includes/client.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/includes/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/includes/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/includes/login_app.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/includes/register_app.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/includes/user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/global.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/layouts/common.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/datepicker/daterangepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/datepicker/daterangepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/datepicker/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/font-awesome-4.7/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/jquery/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/mdi-font/css/material-design-iconic-font.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/mdi-font/css/material-design-iconic-font.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/mdi-font/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/mdi-font/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/mdi-font/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/mdi-font/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/mdi-font/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/select2/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/vendor/select2/select2.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/oauth.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/oauth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth/client_mail.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/client_mail.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oauth/service_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/oauth/service_interface.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/includes/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/includes/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/includes/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/includes/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/layouts/inside.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/layouts/inside.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/layouts/outside.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/layouts/outside.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/includes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/includes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/includes/login_app.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/includes/login_app.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/register.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/render.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/render.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/routes.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,9 +191,10 @@
       <screen x="55" y="27" width="1865" height="1053" />
     </state>
     <state x="649" y="278" width="666" height="549" key="#test/55.27.1865.1053@55.27.1865.1053" timestamp="1589731394597" />
-    <state x="435" y="129" width="1065" height="904" key="CommitChangelistDialog2" timestamp="1590323678074">
-      <screen x="55" y="27" width="1865" height="1053" />
+    <state x="391" y="100" width="1065" height="904" key="CommitChangelistDialog2" timestamp="1592818647225">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state x="391" y="100" key="CommitChangelistDialog2/0.0.1920.1032@0.0.1920.1032" timestamp="1592818647225" />
     <state x="435" y="129" width="1065" height="904" key="CommitChangelistDialog2/55.27.1865.1053@55.27.1865.1053" timestamp="1590323678074" />
     <state x="445" y="129" width="1086" height="847" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1585505839769" />
     <state width="1225" height="496" key="DebuggerActiveHint" timestamp="1592816722687">
@@ -251,61 +211,62 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="737" y="277" width="424" height="490" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1592365499430" />
-    <state width="1874" height="332" key="GridCell.Tab.0.bottom" timestamp="1592818083410">
+    <state width="1874" height="332" key="GridCell.Tab.0.bottom" timestamp="1592820321939">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083410" />
+    <state width="1874" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1592820321939" />
     <state width="1819" height="344" key="GridCell.Tab.0.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579236" />
     <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326748" />
-    <state width="1874" height="332" key="GridCell.Tab.0.center" timestamp="1592818083410">
+    <state width="1874" height="332" key="GridCell.Tab.0.center" timestamp="1592820321939">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083410" />
+    <state width="1874" height="332" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1592820321939" />
     <state width="1819" height="344" key="GridCell.Tab.0.center/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579236" />
     <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326747" />
-    <state width="1874" height="332" key="GridCell.Tab.0.left" timestamp="1592818083410">
+    <state width="1874" height="332" key="GridCell.Tab.0.left" timestamp="1592820321938">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083410" />
+    <state width="1874" height="332" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1592820321938" />
     <state width="1819" height="344" key="GridCell.Tab.0.left/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579236" />
     <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326746" />
-    <state width="1874" height="332" key="GridCell.Tab.0.right" timestamp="1592818083410">
+    <state width="1874" height="332" key="GridCell.Tab.0.right" timestamp="1592820321939">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083410" />
+    <state width="1874" height="332" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1592820321939" />
     <state width="1819" height="344" key="GridCell.Tab.0.right/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579236" />
     <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326747" />
-    <state width="1874" height="332" key="GridCell.Tab.1.bottom" timestamp="1592818083348">
+    <state width="1874" height="332" key="GridCell.Tab.1.bottom" timestamp="1592820335090">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.1.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083348" />
+    <state width="1874" height="332" key="GridCell.Tab.1.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1592820335090" />
     <state width="1819" height="344" key="GridCell.Tab.1.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579237" />
     <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326750" />
-    <state width="1874" height="332" key="GridCell.Tab.1.center" timestamp="1592818083348">
+    <state width="1874" height="332" key="GridCell.Tab.1.center" timestamp="1592820335090">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.1.center/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083348" />
+    <state width="1874" height="332" key="GridCell.Tab.1.center/0.0.1920.1032@0.0.1920.1032" timestamp="1592820335090" />
     <state width="1819" height="344" key="GridCell.Tab.1.center/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579236" />
     <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326749" />
-    <state width="1874" height="332" key="GridCell.Tab.1.left" timestamp="1592818083348">
+    <state width="1874" height="332" key="GridCell.Tab.1.left" timestamp="1592820335089">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.1.left/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083348" />
+    <state width="1874" height="332" key="GridCell.Tab.1.left/0.0.1920.1032@0.0.1920.1032" timestamp="1592820335089" />
     <state width="1819" height="344" key="GridCell.Tab.1.left/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579236" />
     <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326748" />
-    <state width="1874" height="332" key="GridCell.Tab.1.right" timestamp="1592818083348">
+    <state width="1874" height="332" key="GridCell.Tab.1.right" timestamp="1592820335090">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1874" height="332" key="GridCell.Tab.1.right/0.0.1920.1032@0.0.1920.1032" timestamp="1592818083348" />
+    <state width="1874" height="332" key="GridCell.Tab.1.right/0.0.1920.1032@0.0.1920.1032" timestamp="1592820335090" />
     <state width="1819" height="344" key="GridCell.Tab.1.right/55.27.1865.1053@55.27.1865.1053" timestamp="1592130579237" />
     <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1585595326749" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1585241678848">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1585241678848" />
-    <state x="579" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1590337577306">
-      <screen x="55" y="27" width="1865" height="1053" />
+    <state x="539" y="256" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1592818648851">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state x="539" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1032@0.0.1920.1032" timestamp="1592818648851" />
     <state x="579" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/55.27.1865.1053@55.27.1865.1053" timestamp="1590337577306" />
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1585505841631" />
     <state width="932" height="527" key="XDebugger.FullValuePopup" timestamp="1590169658701">
@@ -321,19 +282,20 @@
     </state>
     <state x="806" y="203" width="432" height="679" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/55.27.1865.1053@55.27.1865.1053" timestamp="1589386360648" />
     <state x="813" y="203" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1585506592768" />
-    <state x="595" y="262" width="1075" height="594" key="find.popup" timestamp="1592808597772">
+    <state x="595" y="262" width="1075" height="594" key="find.popup" timestamp="1592819261705">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="595" y="262" width="1075" height="594" key="find.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1592808597772" />
+    <state x="595" y="262" width="1075" height="594" key="find.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1592819261705" />
     <state x="633" y="294" width="1044" height="594" key="find.popup/55.27.1865.1053@55.27.1865.1053" timestamp="1592127612441" />
     <state x="641" y="294" width="1037" height="586" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585594092258" />
     <state x="616" y="341" width="733" height="423" key="git4idea.merge.GitPullDialog" timestamp="1590337571090">
       <screen x="55" y="27" width="1865" height="1053" />
     </state>
     <state x="616" y="341" width="733" height="423" key="git4idea.merge.GitPullDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1590337571090" />
-    <state x="820" y="311" width="325" height="482" key="refactoring.ChangeSignatureDialog" timestamp="1590319809711">
-      <screen x="55" y="27" width="1865" height="1053" />
+    <state x="788" y="278" width="325" height="482" key="refactoring.ChangeSignatureDialog" timestamp="1592819253900">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state x="788" y="278" key="refactoring.ChangeSignatureDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1592819253900" />
     <state x="820" y="311" width="325" height="482" key="refactoring.ChangeSignatureDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1590319809711" />
     <state x="648" y="257" width="677" height="678" key="search.everywhere.popup" timestamp="1590319165846">
       <screen x="55" y="27" width="1865" height="1053" />
