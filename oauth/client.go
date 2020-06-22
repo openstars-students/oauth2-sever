@@ -43,13 +43,13 @@ func (s *Service) FindClientByClientID(clientID string) (*models.OauthClient, er
 }
 
 // CreateClient saves a new client to database
-func (s *Service) CreateClient(clientID, secret, redirectURI string) (*models.OauthClient, error) {
-	return s.createClientCommon(clientID, secret, redirectURI)
+func (s *Service) CreateClient(clientID, email, redirectURI string) (*models.OauthClient, error) {
+	return s.createClientCommon(clientID, email, redirectURI)
 }
 
 // CreateClientTx saves a new client to database using injected db object
-func (s *Service) CreateClientTx(clientID, secret, redirectURI string) (*models.OauthClient, error) {
-	return s.createClientCommon(clientID, secret, redirectURI)
+func (s *Service) CreateClientTx(clientID, email, redirectURI string) (*models.OauthClient, error) {
+	return s.createClientCommon(clientID, email, redirectURI)
 }
 
 // AuthClient authenticates client
@@ -69,7 +69,7 @@ func (s *Service) AuthClient(clientID, secret string) (*models.OauthClient, erro
 	return client, nil
 }
 
-func (s *Service) createClientCommon(clientID, secret, redirectURI string) (*models.OauthClient, error) {
+func (s *Service) createClientCommon(clientID, email string, redirectURI string) (*models.OauthClient, error) {
 	log.INFO.Println("oauth.createClientCommon")
 	// Check client ID
 	if s.ClientExists(clientID) {
@@ -77,7 +77,8 @@ func (s *Service) createClientCommon(clientID, secret, redirectURI string) (*mod
 	}
 
 	// Hash password
-	secretHash, err := password.HashPassword(secret)
+
+	secretHash, err := password.HashPassword(clientID)
 	if err != nil {
 		return nil, err
 	}
@@ -89,6 +90,7 @@ func (s *Service) createClientCommon(clientID, secret, redirectURI string) (*mod
 		},
 		Key:         strings.ToLower(clientID),
 		Secret:      string(secretHash),
+		Mail:        email,
 		RedirectURI: redirectURI,
 	}
 	err = service_impl.ClientServiceIns.Put(client.Key, *client)

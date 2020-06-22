@@ -54,3 +54,19 @@ func (s *Service) register(w http.ResponseWriter, r *http.Request) {
 	// Redirect to the login page
 	redirectWithQueryString("/web/login", r.URL.Query(), w, r)
 }
+
+func (s *Service) registerAppForm(w http.ResponseWriter, r *http.Request) {
+	// Get the session service from the request context
+	sessionService, err := getSessionService(r)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// Render the template
+	errMsg, _ := sessionService.GetFlashMessage()
+	renderTemplate(w, "register_app.html", map[string]interface{}{
+		"error":       errMsg,
+		"queryString": getQueryString(r.URL.Query()),
+	})
+}

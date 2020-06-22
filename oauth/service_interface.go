@@ -19,8 +19,8 @@ type ServiceInterface interface {
 	RegisterRoutes(router *mux.Router, prefix string)
 	ClientExists(clientID string) bool
 	FindClientByClientID(clientID string) (*models.OauthClient, error)
-	CreateClient(clientID, secret, redirectURI string) (*models.OauthClient, error)
-	CreateClientTx(clientID, secret, redirectURI string) (*models.OauthClient, error)
+	CreateClient(clientID, email, redirectURI string) (*models.OauthClient, error)
+	CreateClientTx(clientID, email, redirectURI string) (*models.OauthClient, error)
 	AuthClient(clientID, secret string) (*models.OauthClient, error)
 	UserExists(username string) bool
 	FindUserByUsername(username string) (*models.OauthUser, error)
@@ -35,6 +35,7 @@ type ServiceInterface interface {
 	GetDefaultScope() string
 	ScopeExists(requestedScope string) bool
 	Login(client *models.OauthClient, user *models.OauthUser, scope string) (*models.OauthAccessToken, *models.OauthRefreshToken, error)
+
 	GrantAuthorizationCode(client *models.OauthClient, user *models.OauthUser, expiresIn int, redirectURI, scope string) (*models.OauthAuthorizationCode, error)
 	GrantAccessToken(client *models.OauthClient, user *models.OauthUser, expiresIn int, scope string) (*models.OauthAccessToken, error)
 	GetOrCreateRefreshToken(client *models.OauthClient, user *models.OauthUser, expiresIn int, scope string) (*models.OauthRefreshToken, error)
@@ -44,4 +45,6 @@ type ServiceInterface interface {
 	NewIntrospectResponseFromRefreshToken(refreshToken *models.OauthRefreshToken) (*IntrospectResponse, error)
 	ClearUserTokens(userSession *session.UserSession)
 	Close()
+	GenerateEmailCode(email string) (mtk *models.MailToken, err error)
+	CheckEmailCode(email string, code string) bool
 }

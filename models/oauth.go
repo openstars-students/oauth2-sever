@@ -13,7 +13,15 @@ type OauthClient struct {
 	MyGormModel
 	Key         string //unique;not null
 	Secret      string //not null
+	Mail        string //not null
 	RedirectURI string
+}
+
+// OauthClient ...
+type MailToken struct {
+	MyGormModel
+	Mail  string //not null
+	Token string
 }
 
 // TableName specifies table name

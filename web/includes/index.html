@@ -1,0 +1,32 @@
+{{ define "title"}}&#x43;&#x68;&agrave;&#x6f;&#x20;&#x6d;&#x1eeb;&#x6e;&#x67;&#x20;&#x62;&#x1ea1;&#x6e;&#x20;&dstrok;&#x1ebf;&#x6e;&#x20;&#x76;&#x1edb;&#x69;&#x20;&#x68;&#x1ec7;&#x20;&#x74;&#x68;&#x1ed1;&#x6e;&#x67;&#x20;&#x4f;&#x61;&#x75;&#x74;&#x68;&#x32;&period;&#x30;{{ end }}
+
+
+{{ define "content" }}
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">&#x43;&#x68;&agrave;&#x6f;&#x20;&#x6d;&#x1eeb;&#x6e;&#x67;&#x20;&#x62;&#x1ea1;&#x6e;&#x20;&dstrok;&#x1ebf;&#x6e;&#x20;&#x76;&#x1edb;&#x69;&#x20;&#x68;&#x1ec7;&#x20;&#x74;&#x68;&#x1ed1;&#x6e;&#x67;&#x20;&#x4f;&#x61;&#x75;&#x74;&#x68;&#x32;&period;&#x30;</h2>
+                </div>
+                <div class="card-body">
+                    {{ if .error }}
+                        <p class="text-danger">{{ .error }}</p>
+                    {{ end }}
+                    <div>
+                        <form class="form-select-login" action="/web/login_app{{ .queryString }}">
+                            <input type="submit" class="btn btn--radius-2 btn--red"
+                                   value="&#x4e;&#x68;&agrave;&#x20;&#x70;&#x68;&aacute;&#x74;&#x20;&#x74;&#x72;&#x69;&#x1ec3;&#x6e;&#x20;&#x1ee9;&#x6e;&#x67;&#x20;&#x64;&#x1ee5;&#x6e;&#x67;">
+                        </form>
+                    </div>
+                    <div><p></p></div>
+                    <div>
+                        <form class="form-select-login" action="/web/login{{ .queryString }}">
+                            <input type="submit" class="btn btn--radius-2 btn--red"
+                                   value="&#x4e;&#x67;&#x1b0;&#x1edd;&#x69;&#x20;&#x64;&ugrave;&#x6e;&#x67;&#x20;&#x74;&#x68;&ocirc;&#x6e;&#x67;&#x20;&#x74;&#x68;&#x1b0;&#x1edd;&#x6e;&#x67;">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}

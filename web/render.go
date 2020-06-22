@@ -57,12 +57,15 @@ func loadTemplates() {
 	bufpool = bpool.NewBufferPool(64)
 
 	layoutTemplates := map[string][]string{
-		"web/layouts/outside.html": {
-			"./web/includes/register.html",
-			"./web/includes/login.html",
-		},
 		"web/layouts/inside.html": {
 			"./web/includes/authorize.html",
+		},
+		"web/layouts/common.html": {
+			"./web/includes/register.html",
+			"./web/includes/register_app.html",
+			"./web/includes/login.html",
+			"./web/includes/login_app.html",
+			"./web/includes/index.html",
 		},
 	}
 

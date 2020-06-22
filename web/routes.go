@@ -16,6 +16,50 @@ func (s *Service) RegisterRoutes(router *mux.Router, prefix string) {
 func (s *Service) GetRoutes() []routes.Route {
 	return []routes.Route{
 		{
+			Name:        "register_app",
+			Method:      "GET",
+			Pattern:     "/register_app",
+			HandlerFunc: s.registerAppForm,
+			Middlewares: []negroni.Handler{
+				new(parseFormMiddleware),
+				newGuestMiddleware(s),
+				newClientMiddleware(s),
+			},
+		},
+		{
+			Name:        "login_app",
+			Method:      "GET",
+			Pattern:     "/login_app",
+			HandlerFunc: s.loginAppForm,
+			Middlewares: []negroni.Handler{
+				new(parseFormMiddleware),
+				newGuestMiddleware(s),
+				newClientMiddleware(s),
+			},
+		},
+		{
+			Name:        "sendMail",
+			Method:      "POST",
+			Pattern:     "/sendMail",
+			HandlerFunc: s.sendMailToken,
+			Middlewares: []negroni.Handler{
+				new(parseFormMiddleware),
+				newGuestMiddleware(s),
+				newClientMiddleware(s),
+			},
+		},
+		{
+			Name:        "index",
+			Method:      "GET",
+			Pattern:     "/",
+			HandlerFunc: s.home,
+			Middlewares: []negroni.Handler{
+				new(parseFormMiddleware),
+				newGuestMiddleware(s),
+				newClientMiddleware(s),
+			},
+		},
+		{
 			Name:        "register_form",
 			Method:      "GET",
 			Pattern:     "/register",

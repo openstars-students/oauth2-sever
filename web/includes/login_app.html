@@ -1,0 +1,104 @@
+{{ define "title"}}Application Login {{ end }}
+
+{{ define "content" }}
+    <style>
+        input:valid {
+            color: green;
+        }
+
+        input:invalid {
+            color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Đăng nhap vao he thong</h2>
+                </div>
+                <div class="card-body">
+                    {{ if .error }}
+                        <p class="text-danger">{{ .error }}</p>
+                    {{ end }}
+                    <form method="POST" action="">
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="email" id="inputEmail">
+                                </div>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">Get Code
+                                    </button>
+                                    <br/><br/>
+                                    <div id="timeCount">Time Remaining: <span id="timing"></span>
+                                        seconds
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Code</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {{/*                                    <input class="input--style-5" type="password" name="password" id="inputPassword">*/}}
+                                    <input class="input--style-5" type="text" name="pincode" maxlength="4" id="pin"
+                                           pattern="\d{4}" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Login</button>
+                            <p>Don't have an application account yet? <a href="/web/register_app{{ .queryString }}">Register</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#genMailCode").click(function () {
+                console.log($('#inputEmail').val())
+                beginCount()
+                $.post("/web/sendMail",
+                    {
+                        mail: $('#inputEmail').val(),
+                    },
+                    function (data, status) {
+                        // alert("Data: " + data + "\nStatus: " + status);
+                        swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Email sent',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    });
+            });
+            // $('#timeCount').hide();
+
+            function beginCount() {
+                var myTimer, timing = 60;
+                $('#timing').html(timing);
+                $('#genMailCode').hide();
+                myTimer = setInterval(function () {
+                    --timing;
+                    $('#timing').html(timing);
+                    if (timing === 0) {
+                        clearInterval(myTimer);
+                        $('#genMailCode').show();
+                    }
+                }, 1000);
+                $('#timeCount').hide();
+            }
+        })
+
+    </script>
+
+{{ end }}
