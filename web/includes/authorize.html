@@ -1,40 +1,57 @@
 {{ define "title"}}Authorize{{ end }}
 
 {{ define "content" }}
-<div class="container">
-  <div class="page-header">
-    <h1>Authorize</h1>
-  </div>
-  {{ if .error }}
-  <div class="alert alert-danger" role="alert">{{ .error }}div>
-  {{ else }}
-  <form action="" method="post">
-    <div class="form-group">
-      <p><b>{{ .clientID }}</b> would like to perform actions on your behalf.</p>
-      {{ if .token }}
-      <p>How long do you want to authorize <b>{{ .clientID }}</b> for?</p>
-      <div class="radio">
-        <label class="radio-inline">
-          <input type="radio" name="lifetime" value="3600"> 1 hour
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="lifetime" value="86400"> 1 day
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="lifetime" value="604800" checked> 1 week
-        </label>
-      </div>
-      {{ end }}
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Authorize</h2>
+                </div>
+                <div class="card-body">
+                    {{ if .error }}
+                        <div class="form-row">
+                            <div class="alert alert-danger">
+                                <strong style="color: red">{{ .error }}</strong>
+                            </div>
+                        </div>
+                    {{ end }}
+                    <form method="POST" action="">
+                        {{ if .token }}
+                            <div class="form-row p-t-20">
+                                <label class="label">How long do you want to authorize
+                                    <b style="color: #fca130">{{ .clientID }}</b> for?</label>
+                                <div class="p-t-15">
+                                    <label class="radio-container m-r-55"> 1 hour
+                                        <input type="radio" name="lifetime" value="3600">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container m-r-55">1 day
+                                        <input type="radio" name="lifetime" value="86400">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container m-r-55">1 week
+                                        <input type="radio" name="lifetime" value="604800" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        {{ end }}
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group-desc">
+                                    <input type="submit" class="btn btn--radius-2 btn--green" name="allow"
+                                           value="Allow">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group-desc">
+                                    <input type="submit" class="btn btn--radius-2 btn--red" name="deny" value="Deny">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-md-3 col-sm-4 col-xs-6">
-        <input type="submit" class="btn btn-lg btn-block btn-primary" name="allow" value="Allow">
-      </div>
-      <div class="col-md-3 col-sm-4 col-xs-6">
-        <input type="submit" class="btn btn-lg btn-block btn-danger" name="deny" value="Deny">
-      </div>
-    </div>
-  </form>
-  {{ end }}
-</div>
 {{ end }}

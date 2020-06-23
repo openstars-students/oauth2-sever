@@ -1,11 +1,11 @@
-{{ define "title"}}Register{{ end }}
+{{ define "title"}}Application{{ end }}
 
 {{ define "content" }}
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Đăng ký application</h2>
+                    <h2 class="title">Application</h2>
                 </div>
                 <div class="card-body">
                     {{ if .error }}
@@ -40,9 +40,26 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="name">Client ID</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" disabled name="clientId"
+                                           id="inputClientId">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Client Secret</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" disabled name="clientSecret"
+                                           id="inputClientSecret">
+                                </div>
+                            </div>
+                        </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
-                            <p>lready have an account? <a href="/web/login_app{{ .queryString }}">Login</a>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Update</button>
                         </div>
                     </form>
                 </div>

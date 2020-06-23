@@ -11,6 +11,7 @@ import (
 // OauthClient ...
 type OauthClient struct {
 	MyGormModel
+	Name        string //unique;not null
 	Key         string //unique;not null
 	Secret      string //not null
 	Mail        string //not null
@@ -60,6 +61,7 @@ type OauthUser struct {
 	RoleID   sql.NullString //index;not null
 	Role     *OauthRole
 	Username string //unique;not null
+	Mail     string //unique;not null
 	Password sql.NullString
 }
 

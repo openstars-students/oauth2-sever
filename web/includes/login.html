@@ -9,7 +9,11 @@
                 </div>
                 <div class="card-body">
                     {{ if .error }}
-                        <p class="text-danger">{{ .error }}</p>
+                        <div class="form-row">
+                            <div class="alert alert-danger">
+                                <strong style="color: red">{{ .error }}</strong>
+                            </div>
+                        </div>
                     {{ end }}
                     <form method="POST" action="">
                         <div class="form-row">

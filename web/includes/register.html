@@ -9,22 +9,26 @@
                 </div>
                 <div class="card-body">
                     {{ if .error }}
-                        <p class="text-danger">{{ .error }}</p>
+                        <div class="form-row">
+                            <div class="alert alert-danger">
+                                <strong style="color: red">{{ .error }}</strong>
+                            </div>
+                        </div>
                     {{ end }}
-                    <form method="POST" action="">
+                    <form method="POST" action="" id="loginForm" name="loginForm">
                         <div class="form-row m-b-55">
                             <div class="name">Tên</div>
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
+                                            <input class="input--style-5" type="text" name="first_name" required>
                                             <label class="label--desc">first name</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name">
+                                            <input class="input--style-5" type="text" name="last_name" required>
                                             <label class="label--desc">last name</label>
                                         </div>
                                     </div>
@@ -35,7 +39,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" id="inputEmail">
+                                    <input class="input--style-5" type="email" name="email" id="inputEmail" required>
                                 </div>
                             </div>
                         </div>
@@ -43,11 +47,22 @@
                             <div class="name">Password</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="password" name="password" id="inputPassword" >
+                                    <input class="input--style-5" type="password" name="password" id="password"
+                                           data-rule-email="true" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row m-b-55">
+                        <div class="form-row">
+                            <div class="name">Confirm Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="password" name="confirmpassword"
+                                           id="confirmpassword"
+                                           data-rule-email="true" data-rule-equalTo="#email" required>
+                                </div>
+                            </div>
+                        </div>
+                        {{/* <div class="form-row m-b-55">
                             <div class="name">Phone</div>
                             <div class="value">
                                 <div class="row row-refine">
@@ -94,13 +109,36 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                        </div>
+                        </div>*/}}
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                            <button class="btn btn--radius-2 btn--red" type="submit">
+                                Register
+                            </button>
+                            <p>Already have an account? <a href="/web/login{{ .queryString }}">Login</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+    <script>
+        $('#loginForm').validate({
+            rules: {
+                password: {
+                    minlength: 5
+                },
+                confirmpassword: {
+                    minlength: 5,
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                password: " Enter Password",
+                confirmpassword: " Enter Confirm Password Same as Password"
+            }
+        })
+    </script>
+
 {{ end }}

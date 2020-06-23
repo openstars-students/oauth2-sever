@@ -57,7 +57,7 @@ func loadTemplates() {
 	bufpool = bpool.NewBufferPool(64)
 
 	layoutTemplates := map[string][]string{
-		"web/layouts/inside.html": {
+		"web/layouts/common_inside.html": {
 			"./web/includes/authorize.html",
 		},
 		"web/layouts/common.html": {
