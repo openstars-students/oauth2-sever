@@ -28,17 +28,18 @@
                     {{ end }}
                     <form method="POST" action="">
                         <div class="form-row">
-                            <div class="name">Email</div>
+                            <div class="name">ClientId</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" id="inputEmail">
+                                    <input class="input--style-5" type="text" name="clientId" id="inputClientId"
+                                           value="{{ .clientId }}" required>
                                 </div>
                                 <div class="input-group">
-                                    <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">Get Code
+                                    <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">Send Email
+                                        Code
                                     </button>
                                     <br/><br/>
-                                    <div id="timeCount">Time Remaining: <span id="timing"></span>
-                                        seconds
+                                    <div id="timeCount"><span id="timing"></span>
                                     </div>
                                 </div>
                             </div>
@@ -47,14 +48,13 @@
                             <div class="name">Code</div>
                             <div class="value">
                                 <div class="input-group">
-                                    {{/*                                    <input class="input--style-5" type="password" name="password" id="inputPassword">*/}}
                                     <input class="input--style-5" type="text" name="pincode" maxlength="4" id="pin"
                                            pattern="\d{4}" required/>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Login</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Login</button>
                             <p>Don't have an application account yet? <a href="/web/register_app{{ .queryString }}">Register</a>
                         </div>
                     </form>
@@ -68,39 +68,70 @@
         $(document).ready(function () {
 
             $("#genMailCode").click(function () {
-                console.log($('#inputEmail').val())
-                beginCount()
-                $.post("/web/sendMail",
+                console.log($('#inputClientId').val())
+                $.post("/web/validateClient",
                     {
-                        mail: $('#inputEmail').val(),
+                        clientId: $('#inputClientId').val(),
                     },
                     function (data, status) {
-                        // alert("Data: " + data + "\nStatus: " + status);
-                        swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Email sent',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
+                        console.log(data)
+                        if (data) {
+                            beginCount(data)
+                            $.post("/web/sendMail",
+                                {
+                                    mail: data,
+                                },
+                                function (data, status) {
+                                    // alert("Data: " + data + "\nStatus: " + status);
+                                    swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Email sent',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                });
+                        } else {
+                            swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Cant send Email because ClientId not found!',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
                     });
+
             });
 
-            function beginCount() {
+            function beginCount(email) {
                 var myTimer, timing = 60;
-                $('#timing').html(timing);
+                var prefix = 'Send to ' + hideEmail(email) + '. Time Remaining: '
+                $('#timing').html(prefix + timing + ' seconds');
                 $('#genMailCode').hide();
                 myTimer = setInterval(function () {
                     --timing;
-                    $('#timing').html(timing);
+                    $('#timing').html(prefix + timing + ' seconds');
                     if (timing === 0) {
                         clearInterval(myTimer);
                         $('#genMailCode').show();
+                        $('#timing').html('');
                     }
                 }, 1000);
             }
         })
 
+        function hideEmail(email) {
+            var hiddenEmail = "";
+            for (i = 0; i < email.length; i++) {
+                if (i > 2 && i < email.indexOf("@")) {
+                    hiddenEmail += "*";
+                } else {
+                    hiddenEmail += email[i];
+                }
+            }
+            return hiddenEmail
+        }
     </script>
 
 {{ end }}

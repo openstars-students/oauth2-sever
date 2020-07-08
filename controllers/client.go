@@ -17,8 +17,9 @@ type ClientController struct {
 }
 
 type ClientDto struct {
-	Key         string
-	Secret      string
+	ClientId    string
+	Name        string
+	Mail        string
 	RedirectURI string
 }
 
@@ -31,20 +32,21 @@ type ClientDto struct {
 func (u *ClientController) Put() {
 	var clientDto ClientDto
 	json.Unmarshal(u.Ctx.Input.RequestBody, &clientDto)
-	Key := clientDto.Key
-	secret := clientDto.Secret
+	Mail := clientDto.Mail
+	ClientId := clientDto.ClientId
+	Name := clientDto.Name
+	secret := clientDto.Mail + "_Secret"
 	redirectURI := clientDto.RedirectURI
 	cnf := config.NewConfig(false, false, "etcd")
 	service := oauth.NewService(cnf)
-	println(Key)
 	println(secret)
 	println(redirectURI)
-	client, err := service.CreateClient(Key, secret, redirectURI)
+	client, err := service.CreateClient(ClientId, Name, Mail, redirectURI)
 	log.INFO.Println(err)
 	log.INFO.Println("Client:")
 	log.INFO.Println(client)
 	if client != nil {
-		u.Data["json"] = map[string]string{"uid": client.Key}
+		u.Data["json"] = map[string]string{"clientId": client.Key, "secret": client.Secret}
 	}
 	u.ServeJSON()
 }

@@ -19,8 +19,8 @@ type ServiceInterface interface {
 	RegisterRoutes(router *mux.Router, prefix string)
 	ClientExists(clientID string) bool
 	FindClientByClientID(clientID string) (*models.OauthClient, error)
-	CreateClient(clientID, email, redirectURI string) (*models.OauthClient, error)
-	CreateClientTx(clientID, email, redirectURI string) (*models.OauthClient, error)
+	CreateClient(clientID, clientName, email, redirectURI string) (*models.OauthClient, error)
+	CreateClientTx(clientID, clientName, email, redirectURI string) (*models.OauthClient, error)
 	AuthClient(clientID, secret string) (*models.OauthClient, error)
 	UserExists(username string) bool
 	FindUserByUsername(username string) (*models.OauthUser, error)

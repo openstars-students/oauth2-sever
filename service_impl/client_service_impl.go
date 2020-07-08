@@ -2,6 +2,7 @@ package service_impl
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService"
 	"github.com/OpenStars/EtcdBackendService/StringBigsetService/bigset/thrift/gen-go/openstars/core/bigset/generic"
@@ -26,6 +27,15 @@ func init() {
 	})
 }
 
+var (
+	// ErrClientNotFound ...
+	ErrClientNotFound = errors.New("Client not found")
+	// ErrInvalidClientSecret ...
+	ErrInvalidClientSecret = errors.New("Invalid client secret")
+	// ErrClientIDTaken ...
+	ErrClientIDTaken = errors.New("Client ID taken")
+)
+
 type ClientServiceImp struct {
 }
 
@@ -49,21 +59,28 @@ func (s *ClientServiceImp) Put(clientID string, client models.OauthClient) (err 
 }
 
 func (s *ClientServiceImp) Get(clientID string) (client *models.OauthClient, err error) {
-	bskey := generic.TStringKey("client")
-	itemkey := generic.TItemKey(clientID)
-	fmt.Print(clientID)
-	result, err := svClient.BsGetItem(bskey, itemkey)
-	if err != nil {
-		log.INFO.Println("err:")
-		log.INFO.Println(err)
-		return nil, err
+	if clientID != "" {
+		bskey := generic.TStringKey("client")
+		itemkey := generic.TItemKey(clientID)
+		fmt.Print(clientID)
+
+		result, err := svClient.BsGetItem(bskey, itemkey)
+
+		if result != nil {
+			err := json.Unmarshal(result.Value, &client)
+			if err != nil {
+				log.INFO.Println(err)
+				return nil, ErrClientNotFound
+			}
+		}
+		if err != nil {
+			log.INFO.Println(err)
+			return nil, ErrClientNotFound
+		}
+		log.INFO.Println("client info :")
+		log.INFO.Println(client)
+		return client, nil
+	} else {
+		return nil, ErrClientNotFound
 	}
-	if result != nil {
-		err := json.Unmarshal(result.Value, &client)
-		log.INFO.Println("err:")
-		log.INFO.Println(err)
-	}
-	log.INFO.Println("client info :")
-	log.INFO.Println(client)
-	return client, nil
 }

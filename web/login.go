@@ -42,23 +42,6 @@ func (s *Service) loginAppForm(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (s *Service) home(w http.ResponseWriter, r *http.Request) {
-	log.INFO.Print("web.home")
-	// Get the session service from the request context
-	sessionService, err := getSessionService(r)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	// Render the template
-	errMsg, _ := sessionService.GetFlashMessage()
-	renderTemplate(w, "index.html", map[string]interface{}{
-		"error":       errMsg,
-		"queryString": getQueryString(r.URL.Query()),
-	})
-}
-
 func (s *Service) login(w http.ResponseWriter, r *http.Request) {
 	log.INFO.Print("web.login")
 	// Get the session service from the request context
@@ -113,6 +96,7 @@ func (s *Service) login(w http.ResponseWriter, r *http.Request) {
 		AccessToken:  accessToken.Token,
 		RefreshToken: refreshToken.Token,
 	}
+
 	if err := sessionService.SetUserSession(userSession); err != nil {
 		sessionService.SetFlashMessage(err.Error())
 		http.Redirect(w, r, r.RequestURI, http.StatusFound)
@@ -141,6 +125,24 @@ func (s *Service) sendMailToken(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(email))
 }
 
+func (s *Service) validateClient(w http.ResponseWriter, r *http.Request) {
+	log.INFO.Print("web.validateClient")
+
+	if r.Method != "POST" {
+		http.NotFound(w, r)
+		return
+	}
+	clientId := r.Form.Get("clientId")
+	client, _ := s.oauthService.FindClientByClientID(clientId)
+	email := ""
+	if client != nil && client.Mail != "" {
+		email = client.Mail
+		fmt.Println("email: ", email)
+		s.oauthService.GenerateEmailCode(email)
+	}
+	w.Write([]byte(email))
+}
+
 func (s *Service) loginApp(w http.ResponseWriter, r *http.Request) {
 	log.INFO.Print("web.login_app")
 	// Get the session service from the request context
@@ -149,28 +151,32 @@ func (s *Service) loginApp(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	email := r.Form.Get("email")
+	clientId := r.Form.Get("clientId")
+	client, _ := s.oauthService.FindClientByClientID(clientId)
 	// Authenticate pin code
 	isMatched, err := s.oauthService.CheckEmailCode(
-		r.Form.Get("email"),   // username
-		r.Form.Get("pincode"), // password
+		client.Mail,           // clientId
+		r.Form.Get("pincode"), // pincode
 	)
 	if err != nil {
 		sessionService.SetFlashMessage(err.Error())
 		http.Redirect(w, r, r.RequestURI, http.StatusFound)
 		return
 	}
+
 	if isMatched {
-		loginRedirectURI := r.URL.Query().Get("login_redirect_uri")
-		if loginRedirectURI == "" {
-			loginRedirectURI = "/web/admin"
-		}
-		redirectWithQueryString(loginRedirectURI, r.URL.Query(), w, r)
+
+		renderTemplate(w, "home_app.html", map[string]interface{}{
+			"clientId":    client.Key,
+			"secret":      client.Secret,
+			"redirectURI": client.RedirectURI,
+			"name":        client.Name,
+			"email":       client.Mail,
+		})
 	} else {
 		renderTemplate(w, "login_app.html", map[string]interface{}{
-			"error":       "Code not matched, try again",
-			"email":       email,
-			"queryString": getQueryString(r.URL.Query()),
+			"error":    "Code not matched, try again",
+			"clientId": clientId,
 		})
 	}
 

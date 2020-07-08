@@ -49,6 +49,39 @@ func (s *Service) GetRoutes() []routes.Route {
 			},
 		},
 		{
+			Name:        "register_app",
+			Method:      "POST",
+			Pattern:     "/register_app",
+			HandlerFunc: s.registerApp,
+			Middlewares: []negroni.Handler{
+				new(parseFormMiddleware),
+				newGuestMiddleware(s),
+				newClientMiddleware(s),
+			},
+		},
+		{
+			Name:        "home_app",
+			Method:      "GET",
+			Pattern:     "/home_app",
+			HandlerFunc: s.homeApp,
+			Middlewares: []negroni.Handler{
+				new(parseFormMiddleware),
+				newGuestMiddleware(s),
+				newClientMiddleware(s),
+			},
+		},
+		{
+			Name:        "login_app_validate_client",
+			Method:      "POST",
+			Pattern:     "/validateClient",
+			HandlerFunc: s.validateClient,
+			Middlewares: []negroni.Handler{
+				new(parseFormMiddleware),
+				newGuestMiddleware(s),
+				newClientMiddleware(s),
+			},
+		},
+		{
 			Name:        "sendMail",
 			Method:      "POST",
 			Pattern:     "/sendMail",
@@ -63,7 +96,7 @@ func (s *Service) GetRoutes() []routes.Route {
 			Name:        "index",
 			Method:      "GET",
 			Pattern:     "/",
-			HandlerFunc: s.home,
+			HandlerFunc: s.index,
 			Middlewares: []negroni.Handler{
 				new(parseFormMiddleware),
 				newGuestMiddleware(s),

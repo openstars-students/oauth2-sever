@@ -20,15 +20,8 @@
                             <div class="name">Application Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="name" id="inputName">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Email</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" id="inputEmail">
+                                    <input class="input--style-5" type="text" name="name" id="inputName"
+                                           value="{{.name}}" required>
                                 </div>
                             </div>
                         </div>
@@ -36,12 +29,39 @@
                             <div class="name">RedirectURI</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="redirectURI" id="inputURI">
+                                    <input class="input--style-5" type="text" name="redirectURI" id="inputURI"
+                                           value="{{.redirectURI}}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="email" id="inputEmail"
+                                           value="{{.email}}" required>
+                                </div>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">
+                                        Send Email Code
+                                    </button>
+                                    <br/><br/>
+                                    <div id="timeCount"><span id="timing"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Code</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="pincode" maxlength="4" id="pin"
+                                           pattern="\d{4}" required/>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                            <button class="btn btn--radius-2 btn--green" type="submit">Register</button>
                             <p>lready have an account? <a href="/web/login_app{{ .queryString }}">Login</a>
                         </div>
                     </form>
@@ -49,5 +69,66 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#genMailCode").click(function () {
+                const email = $('#inputEmail').val();
+                if (validateEmail(email)) {
+                    beginCount(email)
+                    $.post("/web/sendMail",
+                        {
+                            mail: email,
+                        },
+                        function (data, status) {
+                            // alert("Data: " + data + "\nStatus: " + status);
+                            swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Email sent',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        });
+                } else {
+                    swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Email not valid!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            });
+
+
+        })
+
+        function beginCount(email) {
+            let myTimer, timing = 60;
+            const prefix = 'Time Remaining: ';
+            $('#timing').html(prefix + timing + ' seconds');
+            $('#genMailCode').hide();
+            myTimer = setInterval(function () {
+                --timing;
+                $('#timing').html(prefix + timing + ' seconds');
+                if (timing === 0) {
+                    clearInterval(myTimer);
+                    $('#genMailCode').show();
+                    $('#timing').html('');
+                }
+            }, 1000);
+        }
+
+        function validateEmail(emailField) {
+            const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (reg.test(emailField) == false) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 {{ end }}
 

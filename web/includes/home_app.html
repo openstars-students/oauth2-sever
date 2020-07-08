@@ -20,7 +20,8 @@
                             <div class="name">Application Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="name" id="inputName">
+                                    <input class="input--style-5" type="text" name="name" id="inputName"
+                                           value="{{.name}}">
                                 </div>
                             </div>
                         </div>
@@ -28,7 +29,8 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" id="inputEmail">
+                                    <input class="input--style-5" type="email" name="email" id="inputEmail"
+                                           value="{{.email}}">
                                 </div>
                             </div>
                         </div>
@@ -36,7 +38,8 @@
                             <div class="name">RedirectURI</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="redirectURI" id="inputURI">
+                                    <input class="input--style-5" type="text" name="redirectURI" id="inputURI"
+                                           value="{{.redirectURI}}">
                                 </div>
                             </div>
                         </div>
@@ -45,7 +48,7 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="text" disabled name="clientId"
-                                           id="inputClientId">
+                                           id="inputClientId" value="{{.clientId}}">
                                 </div>
                             </div>
                         </div>
@@ -54,12 +57,12 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="text" disabled name="clientSecret"
-                                           id="inputClientSecret">
+                                           id="inputClientSecret" value="{{.secret}}">
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Update</button>
+                            <button class="btn btn--radius-2 btn--green" type="submit">Update</button>
                         </div>
                     </form>
                 </div>

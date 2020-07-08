@@ -1,11 +1,11 @@
-{{ define "title"}}Login{{ end }}
+{{ define "title"}}Home{{ end }}
 
 {{ define "content" }}
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Đăng nhap vao he thong</h2>
+                    <h2 class="title">Noi dung trang</h2>
                 </div>
                 <div class="card-body">
                     {{ if .error }}
@@ -15,28 +15,6 @@
                             </div>
                         </div>
                     {{ end }}
-                    <form method="POST" action="">
-                        <div class="form-row">
-                            <div class="name">Email</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" id="inputEmail">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Password</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="password" name="password" id="inputPassword" >
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Login</button>
-                            <p>Don't have an account yet? <a href="/web/register{{ .queryString }}">Register</a>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

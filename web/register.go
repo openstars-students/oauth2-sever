@@ -70,3 +70,46 @@ func (s *Service) registerAppForm(w http.ResponseWriter, r *http.Request) {
 		"queryString": getQueryString(r.URL.Query()),
 	})
 }
+
+func (s *Service) registerApp(w http.ResponseWriter, r *http.Request) {
+	// Get the session service from the request context
+	log.INFO.Print("web.registerApp")
+	// Get the session service from the request context
+	sessionService, err := getSessionService(r)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	email := r.Form.Get("email")
+	name := r.Form.Get("name")
+	redirectURI := r.Form.Get("redirectURI")
+	pincode := r.Form.Get("pincode")
+
+	isMatched, err := s.oauthService.CheckEmailCode(
+		email,   // clientId
+		pincode, // pincode
+	)
+	if err != nil {
+		sessionService.SetFlashMessage(err.Error())
+		http.Redirect(w, r, r.RequestURI, http.StatusFound)
+		return
+	}
+
+	if isMatched {
+		client, _ := s.oauthService.CreateClient("", name, email, redirectURI)
+		renderTemplate(w, "home_app.html", map[string]interface{}{
+			"clientId":    client.Key,
+			"secret":      client.Secret,
+			"redirectURI": client.RedirectURI,
+			"name":        client.Name,
+			"email":       client.Mail,
+		})
+	} else {
+		renderTemplate(w, "login_app.html", map[string]interface{}{
+			"error":       "Code not matched, try again",
+			"email":       email,
+			"name":        name,
+			"redirectURI": redirectURI,
+		})
+	}
+}

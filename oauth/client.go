@@ -3,7 +3,6 @@ package oauth
 import (
 	"errors"
 	"github.com/tientruongcao51/oauth2-sever/log"
-	"strings"
 	"time"
 
 	"github.com/tientruongcao51/oauth2-sever/models"
@@ -43,13 +42,13 @@ func (s *Service) FindClientByClientID(clientID string) (*models.OauthClient, er
 }
 
 // CreateClient saves a new client to database
-func (s *Service) CreateClient(clientID, email, redirectURI string) (*models.OauthClient, error) {
-	return s.createClientCommon(clientID, email, redirectURI)
+func (s *Service) CreateClient(clientID, clientName, email, redirectURI string) (*models.OauthClient, error) {
+	return s.createClientCommon(clientID, clientName, email, redirectURI)
 }
 
 // CreateClientTx saves a new client to database using injected db object
-func (s *Service) CreateClientTx(clientID, email, redirectURI string) (*models.OauthClient, error) {
-	return s.createClientCommon(clientID, email, redirectURI)
+func (s *Service) CreateClientTx(clientID, clientName, email, redirectURI string) (*models.OauthClient, error) {
+	return s.createClientCommon(clientID, clientName, email, redirectURI)
 }
 
 // AuthClient authenticates client
@@ -69,16 +68,19 @@ func (s *Service) AuthClient(clientID, secret string) (*models.OauthClient, erro
 	return client, nil
 }
 
-func (s *Service) createClientCommon(clientID, email string, redirectURI string) (*models.OauthClient, error) {
+func (s *Service) createClientCommon(clientID, clientName string, email string, redirectURI string) (*models.OauthClient, error) {
 	log.INFO.Println("oauth.createClientCommon")
 	// Check client ID
-	if s.ClientExists(clientID) {
-		return nil, ErrClientIDTaken
+	clientIdHash := uuid.New()
+	if clientID != "" {
+		if s.ClientExists(clientID) {
+			clientIdHash = clientID
+			//return nil, ErrClientIDTaken
+		}
 	}
-
 	// Hash password
 
-	secretHash, err := password.HashPassword(clientID)
+	secretHash, err := password.HashPassword(email + EncodeToString(10))
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +90,8 @@ func (s *Service) createClientCommon(clientID, email string, redirectURI string)
 			ID:        uuid.New(),
 			CreatedAt: time.Now().UTC(),
 		},
-		Key:         strings.ToLower(clientID),
+		Key:         string(clientIdHash),
+		Name:        clientName,
 		Secret:      string(secretHash),
 		Mail:        email,
 		RedirectURI: redirectURI,
