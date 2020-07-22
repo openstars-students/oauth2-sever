@@ -17,10 +17,6 @@ func (s *Service) GrantAccessToken(client *models.OauthClient, user *models.Oaut
 	}
 	accessToken, err := service_impl.AccessTokenServiceIns.GetByClientIdAndUserID(bsKey)
 
-	if err != nil {
-		return nil, err
-	}
-
 	// Create a new access token
 	accessToken = models.NewOauthAccessToken(client, user, expiresIn, scope)
 	err = service_impl.AccessTokenServiceIns.PutAccessToken(bsKey, *accessToken)
