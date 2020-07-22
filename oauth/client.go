@@ -61,7 +61,7 @@ func (s *Service) AuthClient(clientID, secret string) (*models.OauthClient, erro
 	}
 
 	// Verify the secret
-	if password.VerifyPassword(client.Secret, secret) != nil {
+	if password.VerifySecret(client.Secret, secret) != nil {
 		return nil, ErrInvalidClientSecret
 	}
 
@@ -90,7 +90,7 @@ func (s *Service) createClientCommon(clientID, clientName string, email string, 
 			ID:        uuid.New(),
 			CreatedAt: time.Now().UTC(),
 		},
-		Key:         string(clientIdHash),
+		Key:         clientIdHash,
 		Name:        clientName,
 		Secret:      string(secretHash),
 		Mail:        email,

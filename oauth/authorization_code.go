@@ -36,7 +36,6 @@ func (s *Service) getValidAuthorizationCode(code, redirectURI string, client *mo
 	// Fetch the auth code from the database
 	authorizationCode := new(models.OauthAuthorizationCode)
 
-
 	authorizationCode, err := service_impl.OauthServiceIns.GetByCode(code)
 
 	if err != nil {
@@ -44,9 +43,9 @@ func (s *Service) getValidAuthorizationCode(code, redirectURI string, client *mo
 	}
 
 	// Redirect URI must match if it was used to obtain the authorization code
-	if redirectURI != authorizationCode.RedirectURI.String {
+	/*if redirectURI != authorizationCode.RedirectURI.String {
 		return nil, ErrInvalidRedirectURI
-	}
+	}*/
 
 	// Check the authorization code hasn't expired
 	if time.Now().After(authorizationCode.ExpiresAt) {

@@ -91,6 +91,9 @@ func (s *RefreshTokenServiceImp) Delete(refreshTokenCode string, itemKeyClientUs
 			return err
 		}
 		err = svClient.BsRemoveItem("refresh_token_key", generic.TItemKey(refreshToken.Token))
+		if err != nil {
+			return err
+		}
 		err = svClient.BsRemoveItem("refresh_token", generic.TItemKey(models.GetItemKeyRefreshToken(refreshToken.ClientID.String, refreshToken.UserID.String)))
 		if err != nil {
 			return err

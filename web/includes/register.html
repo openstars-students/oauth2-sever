@@ -23,13 +23,13 @@
                                     <div class="col-2">
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="first_name" required>
-                                            <label class="label--desc">first name</label>
+                                            <label class="label--desc">Họ</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="last_name" required>
-                                            <label class="label--desc">last name</label>
+                                            <label class="label--desc">Tên</label>
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Password</div>
+                            <div class="name">Mật khẩu</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="password" name="password" id="password"
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Confirm Password</div>
+                            <div class="name">Nhập lại mật khẩu</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="password" name="confirmpassword"
@@ -64,9 +64,9 @@
                         </div>
                         <div>
                             <button class="btn btn--radius-2 btn--green" type="submit">
-                                Register
+                                Đăng ký
                             </button>
-                            <p>Already have an account? <a href="/web/login{{ .queryString }}">Login</a>
+                            <p>Bạn đã có tài khoản? <a href="/web/login{{ .queryString }}">Đăng nhập</a>
                         </div>
                     </form>
                 </div>
@@ -87,8 +87,8 @@
                 }
             },
             messages: {
-                password: " Enter Password",
-                confirmpassword: " Enter Confirm Password Same as Password"
+                password: " Nhập mật khẩu",
+                confirmpassword: " Mật khẩu nhập lại không trùng"
             }
         })
     </script>

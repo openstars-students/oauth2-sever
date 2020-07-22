@@ -5,7 +5,7 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Authorize</h2>
+                    <h2 class="title">Xác nhận</h2>
                 </div>
                 <div class="card-body">
                     {{ if .error }}
@@ -18,18 +18,18 @@
                     <form method="POST" action="">
                         {{ if .token }}
                             <div class="form-row p-t-20">
-                                <label class="label">How long do you want to authorize
-                                    <b style="color: #fca130">{{ .clientID }}</b> for?</label>
+                                <label class="label">Cho phép
+                                    <b style="color: #fca130">{{ .clientName }}</b> truy cập dữ liệu đăng nhập của bạn trong ?</label>
                                 <div class="p-t-15">
-                                    <label class="radio-container m-r-55"> 1 hour
+                                    <label class="radio-container m-r-55"> 1 giờ
                                         <input type="radio" name="lifetime" value="3600">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="radio-container m-r-55">1 day
+                                    <label class="radio-container m-r-55">1 ngày
                                         <input type="radio" name="lifetime" value="86400">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="radio-container m-r-55">1 week
+                                    <label class="radio-container m-r-55">1 tuần
                                         <input type="radio" name="lifetime" value="604800" checked>
                                         <span class="checkmark"></span>
                                     </label>
@@ -40,12 +40,12 @@
                             <div class="col-2">
                                 <div class="input-group-desc">
                                     <input type="submit" class="btn btn--radius-2 btn--green" name="allow"
-                                           value="Allow">
+                                           value="Đồng ý">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group-desc">
-                                    <input type="submit" class="btn btn--radius-2 btn--red" name="deny" value="Deny">
+                                    <input type="submit" class="btn btn--radius-2 btn--red" name="deny" value="Không đồng ý">
                                 </div>
                             </div>
                         </div>

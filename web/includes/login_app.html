@@ -16,7 +16,7 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Đăng nhap vao he thong</h2>
+                    <h2 class="title">Đăng nhập vào hệ thống </h2>
                 </div>
                 <div class="card-body">
                     {{ if .error }}
@@ -35,8 +35,8 @@
                                            value="{{ .clientId }}" required>
                                 </div>
                                 <div class="input-group">
-                                    <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">Send Email
-                                        Code
+                                    <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">Xác thực
+                                        Email
                                     </button>
                                     <br/><br/>
                                     <div id="timeCount"><span id="timing"></span>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Code</div>
+                            <div class="name">Nhập mã xác thực Email</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="text" name="pincode" maxlength="4" id="pin"
@@ -54,8 +54,8 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Login</button>
-                            <p>Don't have an application account yet? <a href="/web/register_app{{ .queryString }}">Register</a>
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Đăng nhập</button>
+                            <p>Bạn chưa có tài khoản ? <a href="/web/register_app{{ .queryString }}">Đăng ký</a>
                         </div>
                     </form>
                 </div>
@@ -86,7 +86,7 @@
                                     swal.fire({
                                         position: 'top-end',
                                         icon: 'success',
-                                        title: 'Email sent',
+                                        title: 'Đã gửi mã xác thực tới email của bạn ',
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
@@ -95,7 +95,7 @@
                             swal.fire({
                                 position: 'top-end',
                                 icon: 'error',
-                                title: 'Cant send Email because ClientId not found!',
+                                title: 'Không tìm thấy ứng dụng trong hệ thống!',
                                 showConfirmButton: false,
                                 timer: 1500
                             })

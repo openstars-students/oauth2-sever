@@ -5,7 +5,7 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Đăng ký application</h2>
+                    <h2 class="title">Đăng ký ứng dụng bên thứ ba </h2>
                 </div>
                 <div class="card-body">
                     {{ if .error }}
@@ -17,7 +17,7 @@
                     {{ end }}
                     <form method="POST" action="">
                         <div class="form-row">
-                            <div class="name">Application Name</div>
+                            <div class="name">Tên ứng dụng</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="text" name="name" id="inputName"
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="input-group">
                                     <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">
-                                        Send Email Code
+                                       Xác thực Email
                                     </button>
                                     <br/><br/>
                                     <div id="timeCount"><span id="timing"></span>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Code</div>
+                            <div class="name">Nhập mã xác thực Email</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="text" name="pincode" maxlength="4" id="pin"
@@ -61,8 +61,8 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn--radius-2 btn--green" type="submit">Register</button>
-                            <p>lready have an account? <a href="/web/login_app{{ .queryString }}">Login</a>
+                            <button class="btn btn--radius-2 btn--green" type="submit">Đăng ký</button>
+                            <p>Bạn đã có tài khoản cho ứng dụng bên thứ ba? <a href="/web/login_app{{ .queryString }}">Đăng nhập</a>
                         </div>
                     </form>
                 </div>
@@ -87,7 +87,7 @@
                             swal.fire({
                                 position: 'top-end',
                                 icon: 'success',
-                                title: 'Email sent',
+                                title: 'Đã gửi mã xác thực tới email của bạn ',
                                 showConfirmButton: false,
                                 timer: 1500
                             })
@@ -96,7 +96,7 @@
                     swal.fire({
                         position: 'top-end',
                         icon: 'error',
-                        title: 'Email not valid!',
+                        title: 'Email không hợp lệ!',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -108,12 +108,12 @@
 
         function beginCount(email) {
             let myTimer, timing = 60;
-            const prefix = 'Time Remaining: ';
-            $('#timing').html(prefix + timing + ' seconds');
+            const prefix = 'Gửi lại trong vòng: ';
+            $('#timing').html(prefix + timing + ' giây');
             $('#genMailCode').hide();
             myTimer = setInterval(function () {
                 --timing;
-                $('#timing').html(prefix + timing + ' seconds');
+                $('#timing').html(prefix + timing + ' giây');
                 if (timing === 0) {
                     clearInterval(myTimer);
                     $('#genMailCode').show();

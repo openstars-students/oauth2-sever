@@ -77,8 +77,7 @@ func (s *ClientServiceImp) Get(clientID string) (client *models.OauthClient, err
 			log.INFO.Println(err)
 			return nil, ErrClientNotFound
 		}
-		log.INFO.Println("client info :")
-		log.INFO.Println(client)
+		log.INFO.Println("client info :", client)
 		return client, nil
 	} else {
 		return nil, ErrClientNotFound
