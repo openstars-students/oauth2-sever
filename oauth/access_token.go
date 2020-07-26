@@ -16,7 +16,9 @@ func (s *Service) GrantAccessToken(client *models.OauthClient, user *models.Oaut
 		bsKey = models.GetItemKeyAccessToken(client.ID, "")
 	}
 	accessToken, err := service_impl.AccessTokenServiceIns.GetByClientIdAndUserID(bsKey)
-
+	if accessToken != nil {
+		service_impl.AccessTokenServiceIns.Delete(accessToken.Token, bsKey)
+	}
 	// Create a new access token
 	accessToken = models.NewOauthAccessToken(client, user, expiresIn, scope)
 	err = service_impl.AccessTokenServiceIns.PutAccessToken(bsKey, *accessToken)

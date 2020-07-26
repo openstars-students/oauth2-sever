@@ -31,7 +31,7 @@ func (s *UserServiceImp) Put(username string, user models.OauthUser) (Username s
 	if err == nil {
 		return user.Username, nil
 	}
-	return "", errors.New("User Not Exist")
+	return "", errors.New("Người dùng không tồn tại ")
 }
 
 func (s *UserServiceImp) GetByUsername(username string) (user *models.OauthUser, err error) {

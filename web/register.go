@@ -34,20 +34,34 @@ func (s *Service) register(w http.ResponseWriter, r *http.Request) {
 	println("email input " + r.Form.Get("email"))
 	// Check that the submitted email hasn't been registered already
 	if s.oauthService.UserExists(r.Form.Get("email")) {
-		sessionService.SetFlashMessage("Email taken")
+		sessionService.SetFlashMessage("Email đã tồn tại")
 		http.Redirect(w, r, r.RequestURI, http.StatusFound)
 		return
 	}
+	email := r.Form.Get("email")
+	pincode := r.Form.Get("pincode")
 
-	// Create a user
-	_, err = s.oauthService.CreateUser(
-		roles.User,             // role ID
-		r.Form.Get("email"),    // username
-		r.Form.Get("password"), // password
+	isMatched, err := s.oauthService.CheckEmailCode(
+		email,   // clientId
+		pincode, // pincode
 	)
-	if err != nil {
-		sessionService.SetFlashMessage(err.Error())
-		http.Redirect(w, r, r.RequestURI, http.StatusFound)
+	if isMatched {
+		// Create a user
+		_, err = s.oauthService.CreateUser(
+			roles.User,             // role ID
+			r.Form.Get("email"),    // username
+			r.Form.Get("password"), // password
+		)
+		if err != nil {
+			sessionService.SetFlashMessage(err.Error())
+			http.Redirect(w, r, r.RequestURI, http.StatusFound)
+			return
+		}
+	} else {
+		renderTemplate(w, "login.html", map[string]interface{}{
+			"error": "Email Code không đúng, vui lòng kiểm tra lại",
+			"email": email,
+		})
 		return
 	}
 
@@ -106,7 +120,7 @@ func (s *Service) registerApp(w http.ResponseWriter, r *http.Request) {
 		})
 	} else {
 		renderTemplate(w, "login_app.html", map[string]interface{}{
-			"error":       "Code not matched, try again",
+			"error":       "Email Code không đúng, vui lòng kiểm tra lại",
 			"email":       email,
 			"name":        name,
 			"redirectURI": redirectURI,

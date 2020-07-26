@@ -3,9 +3,9 @@ package web
 import (
 	"fmt"
 	"github.com/tientruongcao51/oauth2-sever/log"
-	"net/http"
-
+	"github.com/tientruongcao51/oauth2-sever/service_impl"
 	"github.com/tientruongcao51/oauth2-sever/session"
+	"net/http"
 )
 
 func (s *Service) loginForm(w http.ResponseWriter, r *http.Request) {
@@ -54,8 +54,23 @@ func (s *Service) login(w http.ResponseWriter, r *http.Request) {
 	// Get the client from the request context
 	client, err := getClient(r)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
+		client, err = service_impl.ClientServiceIns.Get("login_user_session")
+		//if err != nil {
+		/*client = &models.OauthClient{
+			MyGormModel: models.MyGormModel{
+				ID:        uuid.New(),
+				CreatedAt: time.Now().UTC(),
+			},
+			Key:         "login_user_session",
+			Name:        "login_user_session",
+			Secret:      "login_user_session",
+			Mail:        "",
+			RedirectURI: "",
+		}
+		service_impl.ClientServiceIns.Put("login_user_session", *client)*/
+		//}
+		/*http.Error(w, err.Error(), http.StatusBadRequest)
+		return*/
 	}
 
 	// Authenticate the user
@@ -106,10 +121,15 @@ func (s *Service) login(w http.ResponseWriter, r *http.Request) {
 	// Redirect to the authorize page by default but allow redirection to other
 	// pages by specifying a path with login_redirect_uri query string param
 	loginRedirectURI := r.URL.Query().Get("login_redirect_uri")
-	if loginRedirectURI == "" {
-		loginRedirectURI = "/web/admin"
+	if loginRedirectURI == "" || loginRedirectURI == "/web/logout" {
+		//loginRedirectURI = "/web/admin"
+		renderTemplate(w, "home.html", map[string]interface{}{
+			"Username": user.Username,
+			"Mail":     user.Mail,
+		})
+	} else {
+		redirectWithQueryString(loginRedirectURI, r.URL.Query(), w, r)
 	}
-	redirectWithQueryString(loginRedirectURI, r.URL.Query(), w, r)
 }
 
 func (s *Service) sendMailToken(w http.ResponseWriter, r *http.Request) {
@@ -175,7 +195,7 @@ func (s *Service) loginApp(w http.ResponseWriter, r *http.Request) {
 		})
 	} else {
 		renderTemplate(w, "login_app.html", map[string]interface{}{
-			"error":    "Code not matched, try again",
+			"error":    "Email Code không đúng, vui lòng kiểm tra lại",
 			"clientId": clientId,
 		})
 	}

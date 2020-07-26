@@ -1,7 +1,7 @@
 {{ define "title"}}Register{{ end }}
 
 {{ define "content" }}
-    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="page-wrapper p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
@@ -16,30 +16,17 @@
                         </div>
                     {{ end }}
                     <form method="POST" action="" id="loginForm" name="loginForm">
-                        <div class="form-row m-b-55">
-                            <div class="name">Tên</div>
-                            <div class="value">
-                                <div class="row row-space">
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name" required>
-                                            <label class="label--desc">Họ</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name" required>
-                                            <label class="label--desc">Tên</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-row">
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="email" name="email" id="inputEmail" required>
+                                </div>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn--radius-2 btn--red" id="genMailCode">
+                                        Xác thực Email
+                                    </button>
+                                    <div id="timeCount"><span id="timing"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -62,6 +49,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="name">Nhập mã xác thực Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="pincode" maxlength="4" id="pin"
+                                           pattern="\d{4}" required/>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             <button class="btn btn--radius-2 btn--green" type="submit">
                                 Đăng ký
@@ -75,6 +71,65 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        $(document).ready(function () {
+            $("#genMailCode").click(function () {
+                const email = $('#inputEmail').val();
+                if (validateEmail(email)) {
+                    beginCount(email)
+                    $.post("/web/sendMail",
+                        {
+                            mail: email,
+                        },
+                        function (data, status) {
+                            // alert("Data: " + data + "\nStatus: " + status);
+                            swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Đã gửi mã xác thực tới email của bạn ',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        });
+                } else {
+                    swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Email không hợp lệ!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            });
+
+
+        })
+
+        function beginCount(email) {
+            let myTimer, timing = 60;
+            const prefix = 'Gửi lại trong vòng: ';
+            $('#timing').html(prefix + timing + ' giây');
+            $('#genMailCode').hide();
+            myTimer = setInterval(function () {
+                --timing;
+                $('#timing').html(prefix + timing + ' giây');
+                if (timing === 0) {
+                    clearInterval(myTimer);
+                    $('#genMailCode').show();
+                    $('#timing').html('');
+                }
+            }, 1000);
+        }
+
+        function validateEmail(emailField) {
+            const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (reg.test(emailField) == false) {
+                return false;
+            }
+            return true;
+        }
+    </script>
     <script>
         $('#loginForm').validate({
             rules: {
